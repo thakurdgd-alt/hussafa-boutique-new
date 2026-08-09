@@ -2,18 +2,24 @@ export default function Shop() {
   const products = [
     {
       name: "Luxury Garments",
-      price: "£120",
+      price: "Coming Soon",
       description: "Elegant designs crafted for special occasions.",
     },
     {
       name: "Premium Jewellery",
-      price: "£180",
+      price: "Coming Soon",
       description: "Timeless jewellery with elegant luxury details.",
     },
     {
       name: "Luxury Perfumes",
-      price: "£95",
+      price: "Coming Soon",
       description: "Exclusive fragrances for your personality.",
+    },
+    {
+      name: "Luxury Hand Bags",
+      price: "Coming Soon",
+      description:
+        "Stylish handbags and colorful shoulder purses designed for everyday elegance.",
     },
   ];
 
@@ -130,7 +136,7 @@ export default function Shop() {
               <p
                 style={{
                   color: "#fff",
-                  fontSize: "24px",
+                  fontSize: "20px",
                   fontWeight: "bold",
                   margin: "20px 0",
                 }}
