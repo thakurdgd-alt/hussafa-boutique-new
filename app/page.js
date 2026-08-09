@@ -275,21 +275,54 @@ export default function Home() {
           Contact us directly through WhatsApp.
         </p>
 
-        <a
-          href="https://wa.me/447388454498"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: "inline-block",
-            backgroundColor: "#16a34a",
-            color: "#fff",
-            padding: "15px 30px",
-            borderRadius: "30px",
-            fontWeight: "bold",
-          }}
-        >
-          Order On WhatsApp
-        </a>
+       <div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "15px",
+  }}
+>
+  <a
+    href="https://wa.me/447388454498"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      display: "inline-block",
+      backgroundColor: "#16a34a",
+      color: "#fff",
+      padding: "15px 30px",
+      borderRadius: "30px",
+      fontWeight: "bold",
+    }}
+  >
+    WhatsApp: +44 7388 454498
+  </a>
+
+  <a
+    href="mailto:umairaabdullah2018@gmail.com"
+    style={{
+      color: "#D4AF37",
+      fontSize: "17px",
+    }}
+  >
+    Email: umairaabdullah2018@gmail.com
+  </a>
+
+  <a
+    href="https://vm.tiktok.com/ZS9hcEuhFQLGY-XSUUE/"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      color: "#fff",
+      border: "1px solid #444",
+      padding: "12px 25px",
+      borderRadius: "25px",
+    }}
+  >
+    Follow us on TikTok
+  </a>
+</div>
       </section>
 
       {/* Footer */}
