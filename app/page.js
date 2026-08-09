@@ -1,25 +1,41 @@
 export default function Home() {
   return (
-    <main>
+    <main
+      style={{
+        backgroundColor: "#000",
+        color: "#fff",
+        minHeight: "100vh",
+      }}
+    >
       {/* Navigation */}
       <nav
         style={{
-          padding: "20px 40px",
+          padding: "20px",
+          borderBottom: "1px solid #222",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          borderBottom: "1px solid #333",
-          backgroundColor: "#000",
+          gap: "20px",
+          flexWrap: "wrap",
         }}
       >
-        <h2 style={{ color: "#D4AF37", margin: 0 }}>
+        <a
+          href="/"
+          style={{
+            color: "#D4AF37",
+            fontSize: "24px",
+            fontWeight: "bold",
+            letterSpacing: "2px",
+          }}
+        >
           HUSSAFA
-        </h2>
+        </a>
 
         <div
           style={{
             display: "flex",
-            gap: "25px",
+            gap: "20px",
+            flexWrap: "wrap",
           }}
         >
           <a href="/" style={{ color: "#fff" }}>
@@ -43,20 +59,21 @@ export default function Home() {
       {/* Hero */}
       <section
         style={{
-          minHeight: "80vh",
+          minHeight: "85vh",
+          padding: "80px 20px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "40px 20px",
         }}
       >
         <p
           style={{
             color: "#D4AF37",
-            letterSpacing: "5px",
-            marginBottom: "15px",
+            letterSpacing: "6px",
+            fontSize: "14px",
+            marginBottom: "20px",
           }}
         >
           LUXURY FASHION HOUSE
@@ -65,9 +82,10 @@ export default function Home() {
         <h1
           style={{
             color: "#D4AF37",
-            fontSize: "clamp(48px, 8vw, 90px)",
-            lineHeight: "1",
-            margin: "0 0 25px",
+            fontSize: "clamp(55px, 12vw, 110px)",
+            lineHeight: "0.95",
+            margin: "0",
+            letterSpacing: "3px",
           }}
         >
           HUSSAFA
@@ -77,23 +95,25 @@ export default function Home() {
 
         <p
           style={{
-            color: "#ccc",
-            maxWidth: "600px",
-            fontSize: "18px",
-            lineHeight: "1.7",
+            color: "#bbb",
+            maxWidth: "650px",
+            fontSize: "19px",
+            lineHeight: "1.8",
+            marginTop: "30px",
           }}
         >
           Where elegance meets luxury. Discover premium garments,
-          jewellery and exclusive fragrances.
+          jewellery and exclusive fragrances designed for those
+          who appreciate timeless style.
         </p>
 
         <a
           href="/shop"
           style={{
-            marginTop: "30px",
+            marginTop: "35px",
             backgroundColor: "#D4AF37",
             color: "#000",
-            padding: "15px 35px",
+            padding: "16px 40px",
             borderRadius: "30px",
             fontWeight: "bold",
           }}
@@ -106,43 +126,153 @@ export default function Home() {
       <section
         id="about"
         style={{
-          padding: "80px 20px",
+          padding: "90px 20px",
+          backgroundColor: "#080808",
           textAlign: "center",
-          backgroundColor: "#0a0a0a",
         }}
       >
-        <h2 style={{ color: "#D4AF37", fontSize: "36px" }}>
+        <p
+          style={{
+            color: "#D4AF37",
+            letterSpacing: "4px",
+          }}
+        >
+          OUR STORY
+        </p>
+
+        <h2
+          style={{
+            color: "#D4AF37",
+            fontSize: "42px",
+            margin: "15px 0 25px",
+          }}
+        >
           About HUSSAFA
         </h2>
 
         <p
           style={{
             color: "#aaa",
-            maxWidth: "700px",
-            margin: "20px auto",
-            lineHeight: "1.8",
+            maxWidth: "750px",
+            margin: "0 auto",
+            lineHeight: "1.9",
+            fontSize: "17px",
           }}
         >
-          HUSSAFA BOUTIQUE brings together elegant fashion,
-          premium jewellery and exclusive fragrances for customers
-          who appreciate timeless luxury.
+          HUSSAFA BOUTIQUE is dedicated to bringing elegance,
+          quality and luxury together. Our collection is created
+          for customers who value beautiful designs and timeless
+          sophistication.
         </p>
+      </section>
+
+      {/* Why Choose Us */}
+      <section
+        style={{
+          padding: "90px 20px",
+          textAlign: "center",
+        }}
+      >
+        <h2
+          style={{
+            color: "#D4AF37",
+            fontSize: "38px",
+            marginBottom: "50px",
+          }}
+        >
+          Why Choose HUSSAFA?
+        </h2>
+
+        <div
+          style={{
+            maxWidth: "1000px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "25px",
+          }}
+        >
+          <div
+            style={{
+              border: "1px solid #333",
+              padding: "30px",
+              borderRadius: "15px",
+            }}
+          >
+            <h3 style={{ color: "#D4AF37" }}>
+              Premium Quality
+            </h3>
+
+            <p style={{ color: "#999", lineHeight: "1.7" }}>
+              Carefully selected luxury collections.
+            </p>
+          </div>
+
+          <div
+            style={{
+              border: "1px solid #333",
+              padding: "30px",
+              borderRadius: "15px",
+            }}
+          >
+            <h3 style={{ color: "#D4AF37" }}>
+              Elegant Designs
+            </h3>
+
+            <p style={{ color: "#999", lineHeight: "1.7" }}>
+              Modern styles with timeless elegance.
+            </p>
+          </div>
+
+          <div
+            style={{
+              border: "1px solid #333",
+              padding: "30px",
+              borderRadius: "15px",
+            }}
+          >
+            <h3 style={{ color: "#D4AF37" }}>
+              Worldwide Service
+            </h3>
+
+            <p style={{ color: "#999", lineHeight: "1.7" }}>
+              Serving customers around the world.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Contact */}
       <section
         id="contact"
         style={{
-          padding: "80px 20px",
+          padding: "90px 20px",
+          backgroundColor: "#080808",
           textAlign: "center",
         }}
       >
-        <h2 style={{ color: "#D4AF37", fontSize: "36px" }}>
-          Contact Us
+        <p
+          style={{
+            color: "#D4AF37",
+            letterSpacing: "4px",
+          }}
+        >
+          GET IN TOUCH
+        </p>
+
+        <h2
+          style={{
+            color: "#D4AF37",
+            fontSize: "40px",
+            margin: "15px 0",
+          }}
+        >
+          Ready To Order?
         </h2>
 
-        <p style={{ color: "#aaa", marginBottom: "25px" }}>
-          Ready to discover your next luxury piece?
+        <p style={{ color: "#aaa", marginBottom: "30px" }}>
+          Contact us directly through WhatsApp.
         </p>
 
         <a
@@ -153,20 +283,20 @@ export default function Home() {
             display: "inline-block",
             backgroundColor: "#16a34a",
             color: "#fff",
-            padding: "14px 28px",
+            padding: "15px 30px",
             borderRadius: "30px",
             fontWeight: "bold",
           }}
         >
-          Order on WhatsApp
+          Order On WhatsApp
         </a>
       </section>
 
       {/* Footer */}
       <footer
         style={{
-          borderTop: "1px solid #333",
-          padding: "25px",
+          borderTop: "1px solid #222",
+          padding: "30px 20px",
           textAlign: "center",
           color: "#777",
         }}
