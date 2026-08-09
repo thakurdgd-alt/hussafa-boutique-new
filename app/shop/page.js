@@ -1,11 +1,29 @@
 export default function Shop() {
+  const products = [
+    {
+      name: "Luxury Garments",
+      price: "£120",
+      description: "Elegant designs crafted for special occasions.",
+    },
+    {
+      name: "Premium Jewellery",
+      price: "£180",
+      description: "Timeless jewellery with elegant luxury details.",
+    },
+    {
+      name: "Luxury Perfumes",
+      price: "£95",
+      description: "Exclusive fragrances for your personality.",
+    },
+  ];
+
   return (
     <main
       style={{
         minHeight: "100vh",
         backgroundColor: "#000",
         color: "#fff",
-        padding: "40px 20px",
+        padding: "40px 20px 80px",
       }}
     >
       <div
@@ -25,7 +43,7 @@ export default function Shop() {
           ← Back to Home
         </a>
 
-        <div
+        <header
           style={{
             textAlign: "center",
             marginBottom: "60px",
@@ -43,123 +61,101 @@ export default function Shop() {
           <h1
             style={{
               color: "#D4AF37",
-              fontSize: "50px",
+              fontSize: "clamp(42px, 7vw, 64px)",
               margin: "15px 0",
             }}
           >
             Our Collection
           </h1>
 
-          <p style={{ color: "#aaa" }}>
-            Discover our luxury collection.
+          <p style={{ color: "#aaa", fontSize: "18px" }}>
+            Luxury products selected for you.
           </p>
-        </div>
+        </header>
 
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gap: "25px",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "30px",
           }}
         >
-          <div
-            style={{
-              border: "1px solid #D4AF37",
-              borderRadius: "15px",
-              padding: "35px",
-              textAlign: "center",
-            }}
-          >
-            <h2 style={{ color: "#D4AF37" }}>
-              Luxury Garments
-            </h2>
-
-            <p style={{ color: "#aaa", lineHeight: "1.7" }}>
-              Elegant designs for every occasion.
-            </p>
-
-            <a
-              href="https://wa.me/447388454498"
-              target="_blank"
-              rel="noopener noreferrer"
+          {products.map((product) => (
+            <article
+              key={product.name}
               style={{
-                display: "inline-block",
-                marginTop: "20px",
-                backgroundColor: "#16a34a",
-                color: "#fff",
-                padding: "12px 22px",
-                borderRadius: "25px",
+                border: "1px solid #8a6f20",
+                borderRadius: "18px",
+                padding: "35px",
+                backgroundColor: "#080808",
               }}
             >
-              Order on WhatsApp
-            </a>
-          </div>
+              <div
+                style={{
+                  height: "220px",
+                  borderRadius: "12px",
+                  backgroundColor: "#151515",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "25px",
+                  color: "#D4AF37",
+                  fontSize: "18px",
+                }}
+              >
+                HUSSAFA
+              </div>
 
-          <div
-            style={{
-              border: "1px solid #D4AF37",
-              borderRadius: "15px",
-              padding: "35px",
-              textAlign: "center",
-            }}
-          >
-            <h2 style={{ color: "#D4AF37" }}>
-              Premium Jewellery
-            </h2>
+              <h2
+                style={{
+                  color: "#D4AF37",
+                  fontSize: "25px",
+                  marginBottom: "12px",
+                }}
+              >
+                {product.name}
+              </h2>
 
-            <p style={{ color: "#aaa", lineHeight: "1.7" }}>
-              Timeless beauty and luxury details.
-            </p>
+              <p
+                style={{
+                  color: "#aaa",
+                  lineHeight: "1.7",
+                  minHeight: "55px",
+                }}
+              >
+                {product.description}
+              </p>
 
-            <a
-              href="https://wa.me/447388454498"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-block",
-                marginTop: "20px",
-                backgroundColor: "#16a34a",
-                color: "#fff",
-                padding: "12px 22px",
-                borderRadius: "25px",
-              }}
-            >
-              Order on WhatsApp
-            </a>
-          </div>
+              <p
+                style={{
+                  color: "#fff",
+                  fontSize: "24px",
+                  fontWeight: "bold",
+                  margin: "20px 0",
+                }}
+              >
+                {product.price}
+              </p>
 
-          <div
-            style={{
-              border: "1px solid #D4AF37",
-              borderRadius: "15px",
-              padding: "35px",
-              textAlign: "center",
-            }}
-          >
-            <h2 style={{ color: "#D4AF37" }}>
-              Luxury Perfumes
-            </h2>
-
-            <p style={{ color: "#aaa", lineHeight: "1.7" }}>
-              Exclusive fragrances for your personality.
-            </p>
-
-            <a
-              href="https://wa.me/447388454498"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-block",
-                marginTop: "20px",
-                backgroundColor: "#16a34a",
-                color: "#fff",
-                padding: "12px 22px",
-                borderRadius: "25px",
-              }}
-            >
-              Order on WhatsApp
-            </a>
-          </div>
+              <a
+                href="https://wa.me/447388454498"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "block",
+                  textAlign: "center",
+                  backgroundColor: "#16a34a",
+                  color: "#fff",
+                  padding: "13px 20px",
+                  borderRadius: "28px",
+                  fontWeight: "bold",
+                }}
+              >
+                Order on WhatsApp
+              </a>
+            </article>
+          ))}
         </div>
       </div>
     </main>
