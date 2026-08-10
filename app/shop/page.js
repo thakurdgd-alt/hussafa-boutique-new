@@ -1,28 +1,29 @@
-export default function Shop() {
-  const products = [
-    {
-      name: "Luxury Garments",
-      price: "Coming Soon",
-      description: "Elegant designs crafted for special occasions.",
-    },
-    {
-      name: "Premium Jewellery",
-      price: "Coming Soon",
-      description: "Timeless jewellery with elegant luxury details.",
-    },
-    {
-      name: "Luxury Perfumes",
-      price: "Coming Soon",
-      description: "Exclusive fragrances for your personality.",
-    },
-    {
-      name: "Luxury Hand Bags",
-      price: "Coming Soon",
-      description:
-        "Stylish handbags and colorful shoulder purses designed for everyday elegance.",
-    },
-  ];
+const products = [
+  {
+    name: "Luxury Garments",
+    price: "Coming Soon",
+    description: "Elegant designs crafted for special occasions.",
+  },
+  {
+    name: "Premium Jewellery",
+    price: "Coming Soon",
+    description: "Timeless jewellery with elegant luxury details.",
+  },
+  {
+    name: "Luxury Perfumes",
+    price: "Coming Soon",
+    description: "Exclusive fragrances for your personality.",
+  },
+  {
+    name: "Luxury Hand Bags",
+    price: "Coming Soon",
+    description:
+      "Stylish handbags and colorful shoulder purses designed for everyday elegance.",
+    image: "/bags-collection.jpg",
+  },
+];
 
+export default function Shop() {
   return (
     <main
       style={{
@@ -93,24 +94,44 @@ export default function Shop() {
               style={{
                 border: "1px solid #8a6f20",
                 borderRadius: "18px",
-                padding: "35px",
+                padding: "25px",
                 backgroundColor: "#080808",
               }}
             >
               <div
                 style={{
-                  height: "220px",
+                  height: "240px",
                   borderRadius: "12px",
                   backgroundColor: "#151515",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  overflow: "hidden",
                   marginBottom: "25px",
-                  color: "#D4AF37",
-                  fontSize: "18px",
                 }}
               >
-                HUSSAFA
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                ) : (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#D4AF37",
+                      fontSize: "18px",
+                    }}
+                  >
+                    HUSSAFA
+                  </div>
+                )}
               </div>
 
               <h2
