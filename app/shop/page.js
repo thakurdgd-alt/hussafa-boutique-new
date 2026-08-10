@@ -19,7 +19,7 @@ const products = [
     price: "Coming Soon",
     description:
       "Stylish handbags and colorful shoulder purses designed for everyday elegance.",
-    image: "/bags-collection.jpg",
+    image: "/bags-collection.jpg?v=1",
   },
 ];
 
