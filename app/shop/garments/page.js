@@ -69,21 +69,31 @@ export default function Garments() {
               padding: "20px",
               backgroundColor: "#080808",
             }}
-          >
-            <video
-              src="/garment-video-1.mp4"
-              controls
-              playsInline
-              style={{
-                width: "100%",
-                borderRadius: "12px",
-                display: "block",
-              }}
-            />
-              <video
+          <video
+  src="/garment-video-1.mp4"
+  controls
+  playsInline
+  onPlay={(e) => {
+    document.querySelectorAll("video").forEach((video) => {
+      if (video !== e.currentTarget) video.pause();
+    });
+  }}
+  style={{
+    width: "100%",
+    borderRadius: "12px",
+    display: "block",
+  }}
+/>
+
+<video
   src="/garment-video-2.mp4"
   controls
   playsInline
+  onPlay={(e) => {
+    document.querySelectorAll("video").forEach((video) => {
+      if (video !== e.currentTarget) video.pause();
+    });
+  }}
   style={{
     width: "100%",
     borderRadius: "12px",
