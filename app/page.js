@@ -68,6 +68,21 @@ export default function Home() {
           textAlign: "center",
         }}
       >
+        <video
+  src="/hero-video.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  style={{
+    width: "100%",
+    maxWidth: "1100px",
+    height: "500px",
+    objectFit: "cover",
+    borderRadius: "20px",
+    marginBottom: "40px",
+  }}
+/>
         <p
           style={{
             color: "#D4AF37",
