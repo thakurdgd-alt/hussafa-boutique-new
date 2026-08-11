@@ -16,7 +16,7 @@ const products = [
   },
   {
     name: "Luxury Hand Bags",
-    price: "Coming Soon",
+    price: "Starting from £15",
     description:
       "Stylish handbags and colorful shoulder purses designed for everyday elegance.",
     image: "/BAGS%20IMAGE.jpg?v=3",
