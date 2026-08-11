@@ -109,6 +109,19 @@ export default function Garments() {
                 marginTop: "30px",
               }}
             />
+              <video
+  ref={(el) => (videos.current[2] = el)}
+  src="/garment-video-3.mp4"
+  controls
+  playsInline
+  onPlay={(e) => pauseOtherVideos(e.currentTarget)}
+  style={{
+    width: "100%",
+    borderRadius: "12px",
+    display: "block",
+    marginTop: "30px",
+  }}
+/>
 
             <h2
               style={{
