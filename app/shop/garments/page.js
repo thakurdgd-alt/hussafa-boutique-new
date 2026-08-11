@@ -80,6 +80,17 @@ export default function Garments() {
                 display: "block",
               }}
             />
+              <video
+  src="/garment-video-2.mp4"
+  controls
+  playsInline
+  style={{
+    width: "100%",
+    borderRadius: "12px",
+    display: "block",
+    marginTop: "30px",
+  }}
+/>
 
             <h2
               style={{
