@@ -28,6 +28,13 @@ const products = [
     "Stylish handbag designed for everyday elegance.",
   image: "/BAG1%20(1).jpeg",
 },
+  {
+  name: "Luxury Hand Bag",
+  price: "Price: Contact us on WhatsApp",
+  description:
+    "Stylish handbag designed for everyday elegance.",
+  image: "/BAG1%20(3).jpeg",
+},
 ];
 
 export default function Shop() {
