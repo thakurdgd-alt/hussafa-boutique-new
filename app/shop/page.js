@@ -21,6 +21,13 @@ const products = [
       "Stylish handbags and colorful shoulder purses designed for everyday elegance.",
     image: "/BAGS%20IMAGE.jpg?v=3",
   },
+  {
+  name: "Luxury Hand Bag",
+  price: "£15",
+  description:
+    "Stylish handbag designed for everyday elegance.",
+  image: "/BAG1%20(1).jpeg",
+},
 ];
 
 export default function Shop() {
