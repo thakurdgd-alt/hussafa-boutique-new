@@ -1,9 +1,10 @@
 const products = [
-  {
+ {
   name: "Luxury Garments",
   price: "Coming Soon",
   description: "Elegant designs crafted for special occasions.",
   link: "/shop/garments",
+  image: "/garments-main.jpg",
 },
   {
     name: "Premium Jewellery",
