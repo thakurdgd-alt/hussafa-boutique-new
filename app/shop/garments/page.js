@@ -1,4 +1,18 @@
+"use client";
+
+import { useRef } from "react";
+
 export default function Garments() {
+  const videos = useRef([]);
+
+  const pauseOtherVideos = (currentVideo) => {
+    videos.current.forEach((video) => {
+      if (video && video !== currentVideo) {
+        video.pause();
+      }
+    });
+  };
+
   return (
     <main
       style={{
@@ -70,9 +84,11 @@ export default function Garments() {
             }}
           >
             <video
+              ref={(el) => (videos.current[0] = el)}
               src="/garment-video-1.mp4"
               controls
               playsInline
+              onPlay={(e) => pauseOtherVideos(e.currentTarget)}
               style={{
                 width: "100%",
                 borderRadius: "12px",
@@ -81,9 +97,11 @@ export default function Garments() {
             />
 
             <video
+              ref={(el) => (videos.current[1] = el)}
               src="/garment-video-2.mp4"
               controls
               playsInline
+              onPlay={(e) => pauseOtherVideos(e.currentTarget)}
               style={{
                 width: "100%",
                 borderRadius: "12px",
