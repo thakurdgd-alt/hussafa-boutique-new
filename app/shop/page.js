@@ -150,14 +150,26 @@ export default function Shop() {
               </div>
 
               <h2
-                style={{
-                  color: "#D4AF37",
-                  fontSize: "25px",
-                  marginBottom: "12px",
-                }}
-              >
-                {product.name}
-              </h2>
+  style={{
+    color: "#D4AF37",
+    fontSize: "25px",
+    marginBottom: "12px",
+  }}
+>
+  {product.link ? (
+    <a
+      href={product.link}
+      style={{
+        color: "#D4AF37",
+        textDecoration: "none",
+      }}
+    >
+      {product.name}
+    </a>
+  ) : (
+    product.name
+  )}
+</h2>
 
               <p
                 style={{
