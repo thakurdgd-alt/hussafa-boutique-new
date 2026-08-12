@@ -1,26 +1,26 @@
 const products = [
  {
   name: "Luxury Garments",
-  price: "Coming Soon",
+  price: "Explore Collection",
   description: "Elegant designs crafted for special occasions.",
   link: "/shop/garments",
   image: "/garments-main.jpg",
 },
   {
   name: "Premium Jewellery",
-  price: "Coming Soon",
+  price: "Explore Collection",
   description: "Timeless jewellery with elegant luxury details.",
   image: "/jew1.jpg",
 },
 {
   name: "Premium Perfumes",
-  price: "Coming Soon",
+  price: "Explore Collection",
   description: "Elegant fragrances crafted for a luxurious experience.",
   image: "/perfume1.jpg",
 },
   {
     name: "Luxury Hand Bags",
-    price: "Starting from £15",
+    price: "Explore Collection",
     description:
       "Stylish handbags and colorful shoulder purses designed for everyday elegance.",
     image: "/BAGS%20IMAGE.jpg?v=3",
