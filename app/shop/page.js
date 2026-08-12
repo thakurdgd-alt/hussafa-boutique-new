@@ -7,10 +7,11 @@ const products = [
   image: "/garments-main.jpg",
 },
   {
-    name: "Premium Jewellery",
-    price: "Coming Soon",
-    description: "Timeless jewellery with elegant luxury details.",
-  },
+  name: "Premium Jewellery",
+  price: "Coming Soon",
+  description: "Timeless jewellery with elegant luxury details.",
+  image: "/jew1.jpg",
+},
   {
     name: "Luxury Perfumes",
     price: "Coming Soon",
