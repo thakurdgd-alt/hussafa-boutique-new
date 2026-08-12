@@ -1,362 +1,461 @@
 export default function Home() {
-return (
-<main
-style={{
-backgroundColor: "#000",
-color: "#fff",
-minHeight: "100vh",
-}}
->
-{/* Navigation */}
-<nav
-style={{
-padding: "20px",
-borderBottom: "1px solid #222",
-display: "flex",
-justifyContent: "space-between",
-alignItems: "center",
-gap: "20px",
-flexWrap: "wrap",
-}}
->
-<a
-href="/"
-style={{
-color: "#D4AF37",
-fontSize: "24px",
-fontWeight: "bold",
-letterSpacing: "2px",
-}}
->
-HUSSAFA
-</a>
-
-    \<div
+  return (
+    <main
       style={{
-        display: "flex",
-        gap: "20px",
-        flexWrap: "wrap",
+        backgroundColor: "#f8f5ef",
+        color: "#2b2723",
+        minHeight: "100vh",
+        fontFamily: "Arial, sans-serif",
       }}
-    \>
-      \<a href="/" style={{ color: "#fff" }}>
-        Home
-      \</a>
+    >
+      <style>{`
+        .hussafa-slideshow {
+          position: relative;
+          width: 100%;
+          max-width: 1200px;
+          height: 650px;
+          overflow: hidden;
+          margin: 0 auto 50px auto;
+          background: #e9e1d5;
+          box-shadow: 0 15px 45px rgba(70, 55, 40, 0.12);
+        }
 
-      \<a href="/shop" style={{ color: "#fff" }}>
-        Shop
-      \</a>
+        .hussafa-slide {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0;
+          animation: hussafaFade 15s infinite;
+        }
 
-      \<a href="#about" style={{ color: "#fff" }}>
-        About
-      \</a>
+        .hussafa-slide:nth-child(1) {
+          animation-delay: 0s;
+        }
 
-      \<a href="#contact" style={{ color: "#fff" }}>
-        Contact
-      \</a>
-    \</div>
-  \</nav>
+        .hussafa-slide:nth-child(2) {
+          animation-delay: 5s;
+        }
 
-  {/\* Hero \*/}
-  \<section
-    style={{
-      minHeight: "85vh",
-      padding: "80px 20px",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      textAlign: "center",
-    }}
-  \>
-    \<video
+        .hussafa-slide:nth-child(3) {
+          animation-delay: 10s;
+        }
 
+        @keyframes hussafaFade {
+          0% {
+            opacity: 0;
+          }
 
-src="/hero-video.mp4"
-autoPlay
-muted
-loop
-playsInline
-style={{
-width: "100%",
-maxWidth: "1100px",
-height: "500px",
-objectFit: "cover",
-borderRadius: "20px",
-marginBottom: "40px",
-}}
-/>
-<p
-style={{
-color: "#D4AF37",
-letterSpacing: "6px",
-fontSize: "14px",
-marginBottom: "20px",
-}}
->
-LUXURY FASHION HOUSE
-</p>
+          8% {
+            opacity: 1;
+          }
 
-    \<h1
-      style={{
-        color: "#D4AF37",
-        fontSize: "clamp(55px, 12vw, 110px)",
-        lineHeight: "0.95",
-        margin: "0",
-        letterSpacing: "3px",
-      }}
-    \>
-      HUSSAFA
-      \<br />
-      BOUTIQUE
-    \</h1>
+          30% {
+            opacity: 1;
+          }
 
-    \<p
-      style={{
-        color: "#bbb",
-        maxWidth: "650px",
-        fontSize: "19px",
-        lineHeight: "1.8",
-        marginTop: "30px",
-      }}
-    \>
-      Where elegance meets luxury. Discover premium garments,
-      jewellery and exclusive fragrances designed for those
-      who appreciate timeless style.
-    \</p>
+          38% {
+            opacity: 0;
+          }
 
-    \<a
-      href="/shop"
-      style={{
-        marginTop: "35px",
-        backgroundColor: "#D4AF37",
-        color: "#000",
-        padding: "16px 40px",
-        borderRadius: "30px",
-        fontWeight: "bold",
-      }}
-    \>
-      Explore Collection
-    \</a>
-  \</section>
+          100% {
+            opacity: 0;
+          }
+        }
 
-  {/\* About \*/}
-  \<section
-    id="about"
-    style={{
-      padding: "90px 20px",
-      backgroundColor: "#080808",
-      textAlign: "center",
-    }}
-  \>
-    \<p
-      style={{
-        color: "#D4AF37",
-        letterSpacing: "4px",
-      }}
-    \>
-      OUR STORY
-    \</p>
+        @media (max-width: 700px) {
+          .hussafa-slideshow {
+            height: 500px;
+          }
+        }
 
-    \<h2
-      style={{
-        color: "#D4AF37",
-        fontSize: "42px",
-        margin: "15px 0 25px",
-      }}
-    \>
-      About HUSSAFA
-    \</h2>
+        @media (max-width: 480px) {
+          .hussafa-slideshow {
+            height: 430px;
+          }
+        }
+      `}</style>
 
-    \<p
-      style={{
-        color: "#aaa",
-        maxWidth: "750px",
-        margin: "0 auto",
-        lineHeight: "1.9",
-        fontSize: "17px",
-      }}
-    \>
-      HUSSAFA BOUTIQUE is dedicated to bringing elegance,
-      quality and luxury together. Our collection is created
-      for customers who value beautiful designs and timeless
-      sophistication.
-    \</p>
-  \</section>
-
-  {/\* Why Choose Us \*/}
-  \<section
-    style={{
-      padding: "90px 20px",
-      textAlign: "center",
-    }}
-  \>
-    \<h2
-      style={{
-        color: "#D4AF37",
-        fontSize: "38px",
-        marginBottom: "50px",
-      }}
-    \>
-      Why Choose HUSSAFA?
-    \</h2>
-
-    \<div
-      style={{
-        maxWidth: "1000px",
-        margin: "0 auto",
-        display: "grid",
-        gridTemplateColumns:
-          "repeat(auto-fit, minmax(220px, 1fr))",
-        gap: "25px",
-      }}
-    \>
-      \<div
+      {/* Navigation */}
+      <nav
         style={{
-          border: "1px solid #333",
-          padding: "30px",
-          borderRadius: "15px",
+          padding: "22px 5%",
+          borderBottom: "1px solid #e6ded2",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "20px",
+          flexWrap: "wrap",
+          backgroundColor: "#fffdf9",
         }}
-      \>
-        \<h3 style={{ color: "#D4AF37" }}>
-          Premium Quality
-        \</h3>
+      >
+        <a
+          href="/"
+          style={{
+            color: "#b08a45",
+            fontSize: "25px",
+            fontWeight: "bold",
+            letterSpacing: "4px",
+            textDecoration: "none",
+          }}
+        >
+          HUSSAFA
+        </a>
 
-        \<p style={{ color: "#999", lineHeight: "1.7" }}>
-          Carefully selected luxury collections.
-        \</p>
-      \</div>
+        <div
+          style={{
+            display: "flex",
+            gap: "25px",
+            flexWrap: "wrap",
+          }}
+        >
+          <a href="/" style={{ color: "#2b2723", textDecoration: "none" }}>
+            Home
+          </a>
 
-      \<div
+          <a href="/shop" style={{ color: "#2b2723", textDecoration: "none" }}>
+            Shop
+          </a>
+
+          <a
+            href="#about"
+            style={{ color: "#2b2723", textDecoration: "none" }}
+          >
+            About
+          </a>
+
+          <a
+            href="#contact"
+            style={{ color: "#2b2723", textDecoration: "none" }}
+          >
+            Contact
+          </a>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section
         style={{
-          border: "1px solid #333",
-          padding: "30px",
-          borderRadius: "15px",
+          minHeight: "88vh",
+          padding: "45px 20px 80px",
+          textAlign: "center",
         }}
-      \>
-        \<h3 style={{ color: "#D4AF37" }}>
-          Elegant Designs
-        \</h3>
+      >
+        {/* Automatic Home Slideshow */}
+        <div className="hussafa-slideshow">
+          <img
+            className="hussafa-slide"
+            src="/home1.jpg"
+            alt="HUSSAFA Boutique collection"
+          />
 
-        \<p style={{ color: "#999", lineHeight: "1.7" }}>
-          Modern styles with timeless elegance.
-        \</p>
-      \</div>
+          <img
+            className="hussafa-slide"
+            src="/home2.jpg"
+            alt="HUSSAFA Boutique collection"
+          />
 
-      \<div
+          <img
+            className="hussafa-slide"
+            src="/home3.jpg"
+            alt="HUSSAFA Boutique collection"
+          />
+        </div>
+
+        <p
+          style={{
+            color: "#b08a45",
+            letterSpacing: "6px",
+            fontSize: "13px",
+            marginBottom: "18px",
+          }}
+        >
+          LUXURY FASHION HOUSE
+        </p>
+
+        <h1
+          style={{
+            color: "#2b2723",
+            fontSize: "clamp(48px, 10vw, 105px)",
+            lineHeight: "0.95",
+            margin: "0",
+            letterSpacing: "5px",
+            fontWeight: "500",
+          }}
+        >
+          HUSSAFA
+          <br />
+          <span style={{ color: "#b08a45" }}>BOUTIQUE</span>
+        </h1>
+
+        <p
+          style={{
+            color: "#70685f",
+            maxWidth: "680px",
+            fontSize: "18px",
+            lineHeight: "1.8",
+            margin: "30px auto 0",
+          }}
+        >
+          Where elegance meets luxury. Discover premium garments,
+          jewellery and exclusive fragrances designed for those
+          who appreciate timeless style.
+        </p>
+
+        <a
+          href="/shop"
+          style={{
+            display: "inline-block",
+            marginTop: "35px",
+            backgroundColor: "#b08a45",
+            color: "#fff",
+            padding: "16px 42px",
+            borderRadius: "2px",
+            fontWeight: "bold",
+            textDecoration: "none",
+            letterSpacing: "1px",
+          }}
+        >
+          EXPLORE COLLECTION
+        </a>
+      </section>
+
+      {/* About */}
+      <section
+        id="about"
         style={{
-          border: "1px solid #333",
-          padding: "30px",
-          borderRadius: "15px",
+          padding: "100px 20px",
+          backgroundColor: "#fffdf9",
+          textAlign: "center",
         }}
-      \>
-        \<h3 style={{ color: "#D4AF37" }}>
-          Worldwide Service
-        \</h3>
+      >
+        <p
+          style={{
+            color: "#b08a45",
+            letterSpacing: "4px",
+          }}
+        >
+          OUR STORY
+        </p>
 
-        \<p style={{ color: "#999", lineHeight: "1.7" }}>
-          Serving customers around the world.
-        \</p>
-      \</div>
-    \</div>
-  \</section>
+        <h2
+          style={{
+            color: "#2b2723",
+            fontSize: "42px",
+            fontWeight: "500",
+            margin: "15px 0 25px",
+          }}
+        >
+          About HUSSAFA
+        </h2>
 
-  {/\* Contact \*/}
-  \<section
-    id="contact"
-    style={{
-      padding: "90px 20px",
-      backgroundColor: "#080808",
-      textAlign: "center",
-    }}
-  \>
-    \<p
-      style={{
-        color: "#D4AF37",
-        letterSpacing: "4px",
-      }}
-    \>
-      GET IN TOUCH
-    \</p>
+        <p
+          style={{
+            color: "#70685f",
+            maxWidth: "750px",
+            margin: "0 auto",
+            lineHeight: "1.9",
+            fontSize: "17px",
+          }}
+        >
+          HUSSAFA BOUTIQUE is dedicated to bringing elegance,
+          quality and luxury together. Our collection is created
+          for customers who value beautiful designs and timeless
+          sophistication.
+        </p>
+      </section>
 
-    \<h2
-      style={{
-        color: "#D4AF37",
-        fontSize: "40px",
-        margin: "15px 0",
-      }}
-    \>
-      Ready To Order?
-    \</h2>
+      {/* Why Choose Us */}
+      <section
+        style={{
+          padding: "100px 20px",
+          backgroundColor: "#f8f5ef",
+          textAlign: "center",
+        }}
+      >
+        <h2
+          style={{
+            color: "#2b2723",
+            fontSize: "38px",
+            fontWeight: "500",
+            marginBottom: "50px",
+          }}
+        >
+          Why Choose HUSSAFA?
+        </h2>
 
-    \<p style={{ color: "#aaa", marginBottom: "30px" }}>
-      Contact us directly through WhatsApp.
-    \</p>
+        <div
+          style={{
+            maxWidth: "1000px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "25px",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#fffdf9",
+              border: "1px solid #e6ded2",
+              padding: "35px 25px",
+            }}
+          >
+            <h3 style={{ color: "#b08a45" }}>Premium Quality</h3>
 
-   \<div
+            <p
+              style={{
+                color: "#70685f",
+                lineHeight: "1.7",
+              }}
+            >
+              Carefully selected luxury collections.
+            </p>
+          </div>
 
+          <div
+            style={{
+              backgroundColor: "#fffdf9",
+              border: "1px solid #e6ded2",
+              padding: "35px 25px",
+            }}
+          >
+            <h3 style={{ color: "#b08a45" }}>Elegant Designs</h3>
 
-style={{
-display: "flex",
-flexDirection: "column",
-alignItems: "center",
-gap: "15px",
-}}
->
-<a
-href="https://wa.me/447388454498"
-target="_blank"
-rel="noopener noreferrer"
-style={{
-display: "inline-block",
-backgroundColor: "#16a34a",
-color: "#fff",
-padding: "15px 30px",
-borderRadius: "30px",
-fontWeight: "bold",
-}}
->
-WhatsApp: +44 7388 454498
-</a>
+            <p
+              style={{
+                color: "#70685f",
+                lineHeight: "1.7",
+              }}
+            >
+              Modern styles with timeless elegance.
+            </p>
+          </div>
 
-<a
-href="mailto:umairaabdullah2018@gmail.com"
-style={{
-color: "#D4AF37",
-fontSize: "17px",
-}}
->
-Email: umairaabdullah2018@gmail.com
-</a>
+          <div
+            style={{
+              backgroundColor: "#fffdf9",
+              border: "1px solid #e6ded2",
+              padding: "35px 25px",
+            }}
+          >
+            <h3 style={{ color: "#b08a45" }}>Worldwide Service</h3>
 
-<a
-href="https://vm.tiktok.com/ZS9hcEuhFQLGY-XSUUE/"
-target="_blank"
-rel="noopener noreferrer"
-style={{
-color: "#fff",
-border: "1px solid #444",
-padding: "12px 25px",
-borderRadius: "25px",
-}}
->
-Follow us on TikTok
-</a>
-</div>
-</section>
+            <p
+              style={{
+                color: "#70685f",
+                lineHeight: "1.7",
+              }}
+            >
+              Serving customers around the world.
+            </p>
+          </div>
+        </div>
+      </section>
 
-  {/\* Footer \*/}
-  \<footer
-    style={{
-      borderTop: "1px solid #222",
-      padding: "30px 20px",
-      textAlign: "center",
-      color: "#777",
-    }}
-  \>
-    © 2026 HUSSAFA BOUTIQUE
-  \</footer>
-\</main>
+      {/* Contact */}
+      <section
+        id="contact"
+        style={{
+          padding: "100px 20px",
+          backgroundColor: "#fffdf9",
+          textAlign: "center",
+        }}
+      >
+        <p
+          style={{
+            color: "#b08a45",
+            letterSpacing: "4px",
+          }}
+        >
+          GET IN TOUCH
+        </p>
 
+        <h2
+          style={{
+            color: "#2b2723",
+            fontSize: "40px",
+            fontWeight: "500",
+            margin: "15px 0",
+          }}
+        >
+          Ready To Order?
+        </h2>
 
-);
+        <p
+          style={{
+            color: "#70685f",
+            marginBottom: "30px",
+          }}
+        >
+          Contact us directly through WhatsApp.
+        </p>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "15px",
+          }}
+        >
+          <a
+            href="https://wa.me/447388454498"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              backgroundColor: "#16a34a",
+              color: "#fff",
+              padding: "15px 30px",
+              borderRadius: "30px",
+              fontWeight: "bold",
+              textDecoration: "none",
+            }}
+          >
+            WhatsApp: +44 7388 454498
+          </a>
+
+          <a
+            href="mailto:umairaabdullah2018@gmail.com"
+            style={{
+              color: "#b08a45",
+              fontSize: "17px",
+            }}
+          >
+            Email: umairaabdullah2018@gmail.com
+          </a>
+
+          <a
+            href="https://vm.tiktok.com/ZS9hcEuhFQLGY-XSUUE/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#2b2723",
+              border: "1px solid #d8cdbf",
+              padding: "12px 25px",
+              borderRadius: "25px",
+              textDecoration: "none",
+            }}
+          >
+            Follow us on TikTok
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer
+        style={{
+          borderTop: "1px solid #e6ded2",
+          padding: "30px 20px",
+          textAlign: "center",
+          color: "#8a8178",
+          backgroundColor: "#f8f5ef",
+        }}
+      >
+        © 2026 HUSSAFA BOUTIQUE
+      </footer>
+    </main>
+  );
 }
