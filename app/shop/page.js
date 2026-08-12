@@ -12,11 +12,12 @@ const products = [
   description: "Timeless jewellery with elegant luxury details.",
   image: "/jew1.jpg",
 },
-  {
-    name: "Luxury Perfumes",
-    price: "Coming Soon",
-    description: "Exclusive fragrances for your personality.",
-  },
+{
+  name: "Premium Perfumes",
+  price: "Coming Soon",
+  description: "Elegant fragrances crafted for a luxurious experience.",
+  image: "/perfume1.jpg",
+},
   {
     name: "Luxury Hand Bags",
     price: "Starting from £15",
