@@ -15,8 +15,9 @@ const products = [
 },
 {
   name: "Premium Perfumes",
-  price: "Explore Collection",
-  description: "Elegant fragrances crafted for a luxurious experience.",
+  price: "COMING SOON",
+  description:
+    "Elegant fragrances crafted for a luxurious experience.",
   image: "/perfume1.jpg",
 },
   {
