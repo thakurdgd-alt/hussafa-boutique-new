@@ -42,7 +42,12 @@ export default function JewelleryPage() {
           HUSSAFA
         </a>
 
-        <div style={{ display: "flex", gap: "25px" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "25px",
+          }}
+        >
           <a
             href="/"
             style={{
@@ -123,6 +128,14 @@ export default function JewelleryPage() {
           {jewelleryImages.map((image, index) => {
             const itemNumber = index + 1;
 
+            const whatsappMessage =
+              `Hello, I am interested in Jewellery Item ${itemNumber}. Please provide more details.`;
+
+            const whatsappLink =
+              `https://wa.me/447388454498?text=${encodeURIComponent(
+                whatsappMessage
+              )}`;
+
             return (
               <article
                 key={image}
@@ -171,7 +184,7 @@ export default function JewelleryPage() {
                   </p>
 
                   <a
-                    href={`https://wa.me/447388454498?text=Hello%2C%20I%20am%20interested%20in%20Jewellery%20Item%20${itemNumber}.%20Please%20provide%20more%20details.`}
+                    href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
