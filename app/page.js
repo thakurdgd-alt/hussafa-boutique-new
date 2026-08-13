@@ -159,24 +159,48 @@ export default function Home() {
       >
         {/* Automatic Home Slideshow */}
         <div className="hussafa-slideshow">
-          <img
-            className="hussafa-slide"
-            src="/home1.jpg"
-            alt="HUSSAFA Boutique collection"
-          />
+  <img
+    className="hussafa-slide"
+    src="/home1.jpg"
+    alt="HUSSAFA Boutique collection"
+  />
 
-          <img
-            className="hussafa-slide"
-            src="/home2.jpg"
-            alt="HUSSAFA Boutique collection"
-          />
+  <img
+    className="hussafa-slide"
+    src="/home2.jpg"
+    alt="HUSSAFA Boutique collection"
+  />
 
-          <img
-            className="hussafa-slide"
-            src="/home3.jpg"
-            alt="HUSSAFA Boutique collection"
-          />
-        </div>
+  <img
+    className="hussafa-slide"
+    src="/home3.jpg"
+    alt="HUSSAFA Boutique collection"
+  />
+
+  <img
+    className="hussafa-slide"
+    src="/home4.jpg"
+    alt="HUSSAFA Boutique collection"
+  />
+
+  <img
+    className="hussafa-slide"
+    src="/home5.jpg"
+    alt="HUSSAFA Boutique collection"
+  />
+
+  <img
+    className="hussafa-slide"
+    src="/home6.jpg"
+    alt="HUSSAFA Boutique collection"
+  />
+
+  <img
+    className="hussafa-slide"
+    src="/home7.jpg"
+    alt="HUSSAFA Boutique collection"
+  />
+</div>
 
         <p
           style={{
