@@ -25,6 +25,7 @@ const products = [
     price: "Explore Collection",
     description:
       "Stylish handbags and colorful shoulder purses designed for everyday elegance.",
+    link: "/bags",
     image: "/BAGS%20IMAGE.jpg?v=3",
   },
   {
