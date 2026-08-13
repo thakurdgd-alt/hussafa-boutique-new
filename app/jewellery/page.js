@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
 const jewelleryImages = [
   "/jew01.jpg",
   ...Array.from(
@@ -11,21 +7,6 @@ const jewelleryImages = [
 ];
 
 export default function JewelleryPage() {
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  function contactWhatsApp(itemNumber) {
-    const message =
-      "Hello, I am interested in Jewellery Item " +
-      itemNumber +
-      ". Please provide more details.";
-
-    const url =
-      "https://wa.me/447388454498?text=" +
-      encodeURIComponent(message);
-
-    window.open(url, "_blank");
-  }
-
   return (
     <main
       style={{
@@ -64,14 +45,20 @@ export default function JewelleryPage() {
         <div style={{ display: "flex", gap: "25px" }}>
           <a
             href="/"
-            style={{ color: "#2b2723", textDecoration: "none" }}
+            style={{
+              color: "#2b2723",
+              textDecoration: "none",
+            }}
           >
             Home
           </a>
 
           <a
             href="/shop"
-            style={{ color: "#2b2723", textDecoration: "none" }}
+            style={{
+              color: "#2b2723",
+              textDecoration: "none",
+            }}
           >
             Shop
           </a>
@@ -145,27 +132,16 @@ export default function JewelleryPage() {
                   padding: "12px",
                 }}
               >
-                <button
-                  onClick={() => setSelectedImage(image)}
+                <img
+                  src={image}
+                  alt={`HUSSAFA Jewellery Item ${itemNumber}`}
                   style={{
                     width: "100%",
-                    padding: 0,
-                    border: "none",
-                    background: "transparent",
-                    cursor: "pointer",
+                    height: "300px",
+                    objectFit: "cover",
+                    display: "block",
                   }}
-                >
-                  <img
-                    src={image}
-                    alt={"HUSSAFA Jewellery Item " + itemNumber}
-                    style={{
-                      width: "100%",
-                      height: "300px",
-                      objectFit: "cover",
-                      display: "block",
-                    }}
-                  />
-                </button>
+                />
 
                 <div
                   style={{
@@ -194,21 +170,22 @@ export default function JewelleryPage() {
                     Price available on WhatsApp
                   </p>
 
-                  <button
-                    onClick={() => contactWhatsApp(itemNumber)}
+                  <a
+                    href={`https://wa.me/447388454498?text=Hello%2C%20I%20am%20interested%20in%20Jewellery%20Item%20${itemNumber}.%20Please%20provide%20more%20details.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
-                      width: "100%",
-                      border: "none",
+                      display: "block",
                       backgroundColor: "#16a34a",
                       color: "#fff",
                       padding: "13px 10px",
                       borderRadius: "25px",
                       fontWeight: "bold",
-                      cursor: "pointer",
+                      textDecoration: "none",
                     }}
                   >
                     Contact on WhatsApp
-                  </button>
+                  </a>
                 </div>
               </article>
             );
@@ -216,7 +193,12 @@ export default function JewelleryPage() {
         </div>
       </section>
 
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: "50px",
+        }}
+      >
         <a
           href="/shop"
           style={{
@@ -230,33 +212,6 @@ export default function JewelleryPage() {
           Back To Shop
         </a>
       </div>
-
-      {selectedImage && (
-        <div
-          onClick={() => setSelectedImage(null)}
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "rgba(0,0,0,0.85)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "20px",
-            zIndex: 9999,
-            cursor: "pointer",
-          }}
-        >
-          <img
-            src={selectedImage}
-            alt="Selected jewellery"
-            style={{
-              maxWidth: "95%",
-              maxHeight: "90vh",
-              objectFit: "contain",
-            }}
-          />
-        </div>
-      )}
     </main>
   );
 }
