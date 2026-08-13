@@ -6,10 +6,11 @@ const products = [
   link: "/shop/garments",
   image: "/garments-main.jpg",
 },
-  {
+{
   name: "Premium Jewellery",
   price: "Explore Collection",
   description: "Timeless jewellery with elegant luxury details.",
+  link: "/jewellery",
   image: "/jew1.jpg",
 },
 {
