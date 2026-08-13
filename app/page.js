@@ -42,7 +42,21 @@ export default function Home() {
         .hussafa-slide:nth-child(3) {
           animation-delay: 10s;
         }
+.hussafa-slide:nth-child(4) {
+  animation-delay: 15s;
+}
 
+.hussafa-slide:nth-child(5) {
+  animation-delay: 20s;
+}
+
+.hussafa-slide:nth-child(6) {
+  animation-delay: 25s;
+}
+
+.hussafa-slide:nth-child(7) {
+  animation-delay: 30s;
+}
         @keyframes hussafaFade {
           0% {
             opacity: 0;
