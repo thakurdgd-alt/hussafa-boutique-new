@@ -1,201 +1,199 @@
+"use client";
+
+import { useState } from "react";
+
 const jewelleryImages = [
   "/jew01.jpg",
-  "/jew2.jpg",
-  "/jew3.jpg",
-  "/jew4.jpg",
-  "/jew5.jpg",
-  "/jew6.jpg",
-  "/jew7.jpg",
-  "/jew8.jpg",
-  "/jew9.jpg",
-  "/jew10.jpg",
-  "/jew11.jpg",
-  "/jew12.jpg",
-  "/jew13.jpg",
-  "/jew14.jpg",
-  "/jew15.jpg",
-  "/jew16.jpg",
-  "/jew17.jpg",
-  "/jew18.jpg",
-  "/jew19.jpg",
-  "/jew20.jpg",
-  "/jew21.jpg",
-  "/jew22.jpg",
-  "/jew23.jpg",
-  "/jew24.jpg",
-  "/jew25.jpg",
-  "/jew26.jpg",
-  "/jew27.jpg",
-  "/jew28.jpg",
-  "/jew29.jpg",
-  "/jew30.jpg",
-  "/jew31.jpg",
-  "/jew32.jpg",
-  "/jew33.jpg",
-  "/jew34.jpg",
-  "/jew35.jpg",
-  "/jew36.jpg",
-  "/jew37.jpg",
-  "/jew38.jpg",
-  "/jew39.jpg",
-  "/jew40.jpg",
-  "/jew41.jpg",
-  "/jew42.jpg",
-  "/jew43.jpg",
-  "/jew44.jpg",
-  "/jew45.jpg",
-  "/jew46.jpg",
-  "/jew47.jpg",
-  "/jew48.jpg",
-  "/jew49.jpg",
-  "/jew50.jpg",
-  "/jew51.jpg",
-  "/jew52.jpg",
-  "/jew53.jpg",
-  "/jew54.jpg",
-  "/jew55.jpg",
-  "/jew56.jpg",
-  "/jew57.jpg",
-  "/jew58.jpg",
-  "/jew59.jpg",
-  "/jew60.jpg",
-  "/jew61.jpg",
-  "/jew62.jpg",
-  "/jew63.jpg",
-  "/jew64.jpg",
-  "/jew65.jpg",
-  "/jew66.jpg",
-  "/jew67.jpg",
-  "/jew68.jpg",
-  "/jew69.jpg",
-  "/jew70.jpg",
-  "/jew71.jpg",
-  "/jew72.jpg",
-  "/jew73.jpg",
-  "/jew74.jpg",
-  "/jew75.jpg",
-  "/jew76.jpg",
-  "/jew77.jpg",
-  "/jew78.jpg",
-  "/jew79.jpg",
-  "/jew80.jpg",
-  "/jew81.jpg",
-  "/jew82.jpg",
-  "/jew83.jpg",
-  "/jew84.jpg",
-  "/jew85.jpg",
-  "/jew86.jpg",
-  "/jew87.jpg",
-  "/jew88.jpg",
-  "/jew89.jpg",
-  "/jew90.jpg",
-  "/jew91.jpg",
-  "/jew92.jpg",
-  "/jew93.jpg",
-  "/jew94.jpg",
-  "/jew95.jpg",
-  "/jew96.jpg",
-  "/jew97.jpg",
-  "/jew98.jpg",
-  "/jew99.jpg",
-  "/jew100.jpg",
-  "/jew101.jpg",
-  "/jew102.jpg",
-  "/jew103.jpg",
-  "/jew104.jpg",
-  "/jew105.jpg",
-  "/jew106.jpg",
-  "/jew107.jpg",
-  "/jew108.jpg",
-  "/jew109.jpg",
-  "/jew110.jpg",
-  "/jew111.jpg",
-  "/jew112.jpg",
-  "/jew113.jpg",
-  "/jew114.jpg",
-  "/jew115.jpg",
-  "/jew116.jpg",
-  "/jew117.jpg",
-  "/jew118.jpg",
-  "/jew119.jpg",
-  "/jew120.jpg",
-  "/jew121.jpg",
-  "/jew122.jpg",
-  "/jew123.jpg",
-  "/jew124.jpg",
-  "/jew125.jpg",
-  "/jew126.jpg",
-  "/jew127.jpg",
-  "/jew128.jpg",
-  "/jew129.jpg",
-  "/jew130.jpg",
-  "/jew131.jpg",
-  "/jew132.jpg",
-  "/jew133.jpg",
-  "/jew134.jpg",
-  "/jew135.jpg",
-  "/jew136.jpg",
-  "/jew137.jpg",
-  "/jew138.jpg",
-  "/jew139.jpg",
-  "/jew140.jpg",
-  "/jew141.jpg",
-  "/jew142.jpg",
-  "/jew143.jpg",
-  "/jew144.jpg",
-  "/jew145.jpg",
-  "/jew146.jpg",
-  "/jew147.jpg",
-  "/jew148.jpg",
-  "/jew149.jpg",
-  "/jew150.jpg",
-  "/jew151.jpg",
-  "/jew152.jpg",
-  "/jew153.jpg",
-  "/jew154.jpg",
-  "/jew155.jpg",
-  "/jew156.jpg",
-  "/jew157.jpg",
-  "/jew158.jpg",
-  "/jew159.jpg",
-  "/jew160.jpg",
-  "/jew161.jpg",
-  "/jew162.jpg",
-  "/jew163.jpg",
-  "/jew164.jpg",
-  "/jew165.jpg",
-  "/jew166.jpg",
-  "/jew167.jpg"
+  ...Array.from({ length: 166 }, (_, index) => `/jew${index + 2}.jpg`),
 ];
 
 export default function JewelleryPage() {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (itemNumber) => {
+    setCart((currentCart) => {
+      const existing = currentCart.find(
+        (item) => item.number === itemNumber
+      );
+
+      if (existing) {
+        return currentCart.map((item) =>
+          item.number === itemNumber
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+
+      return [
+        ...currentCart,
+        {
+          number: itemNumber,
+          quantity: 1,
+        },
+      ];
+    });
+  };
+
+  const increaseQuantity = (itemNumber) => {
+    setCart((currentCart) =>
+      currentCart.map((item) =>
+        item.number === itemNumber
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  };
+
+  const decreaseQuantity = (itemNumber) => {
+    setCart((currentCart) =>
+      currentCart
+        .map((item) =>
+          item.number === itemNumber
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
+  };
+
+  const removeFromCart = (itemNumber) => {
+    setCart((currentCart) =>
+      currentCart.filter((item) => item.number !== itemNumber)
+    );
+  };
+
+  const cartCount = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  const orderOnWhatsApp = () => {
+    if (cart.length === 0) return;
+
+    const items = cart
+      .map(
+        (item) =>
+          `Jewellery Item ${item.number} x ${item.quantity}`
+      )
+      .join("\n");
+
+    const message =
+      `Hello HUSSAFA BOUTIQUE,\n\n` +
+      `I would like to order the following jewellery items:\n\n` +
+      `${items}\n\n` +
+      `Please provide the prices and further details.`;
+
+    const whatsappUrl =
+      `https://wa.me/447388454498?text=${encodeURIComponent(
+        message
+      )}`;
+
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: "#f8f5ef",
+        backgroundColor: "#f8f5ef",
         color: "#2b2723",
-        padding: "40px 20px"
+        fontFamily: "Arial, sans-serif",
+        paddingBottom: "100px",
       }}
     >
-      <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-        
+      {/* Navigation */}
+      <nav
+        style={{
+          padding: "22px 5%",
+          backgroundColor: "#fffdf9",
+          borderBottom: "1px solid #e6ded2",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "20px",
+        }}
+      >
         <a
-          href="/shop"
+          href="/"
           style={{
             color: "#b08a45",
-            textDecoration: "none"
+            fontSize: "25px",
+            fontWeight: "bold",
+            letterSpacing: "4px",
+            textDecoration: "none",
           }}
         >
-          ← Back to Shop
+          HUSSAFA
         </a>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "25px",
+            alignItems: "center",
+          }}
+        >
+          <a
+            href="/"
+            style={{
+              color: "#2b2723",
+              textDecoration: "none",
+            }}
+          >
+            Home
+          </a>
+
+          <a
+            href="/shop"
+            style={{
+              color: "#2b2723",
+              textDecoration: "none",
+            }}
+          >
+            Shop
+          </a>
+
+          {/* Cart */}
+          <a
+            href="#cart"
+            style={{
+              color: "#fff",
+              backgroundColor: "#b08a45",
+              padding: "10px 18px",
+              borderRadius: "25px",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}
+          >
+            🛒 Cart ({cartCount})
+          </a>
+        </div>
+      </nav>
+
+      {/* Header */}
+      <section
+        style={{
+          textAlign: "center",
+          padding: "65px 20px 45px",
+        }}
+      >
+        <p
+          style={{
+            color: "#b08a45",
+            letterSpacing: "5px",
+            fontSize: "13px",
+          }}
+        >
+          HUSSAFA BOUTIQUE
+        </p>
 
         <h1
           style={{
-            textAlign: "center",
-            fontSize: "48px",
-            margin: "50px 0 15px",
-            color: "#b08a45"
+            color: "#2b2723",
+            fontSize: "clamp(40px, 7vw, 65px)",
+            fontWeight: "500",
+            margin: "15px 0",
           }}
         >
           Premium Jewellery
@@ -203,87 +201,346 @@ export default function JewelleryPage() {
 
         <p
           style={{
-            textAlign: "center",
             color: "#70685f",
-            marginBottom: "50px"
+            maxWidth: "700px",
+            margin: "0 auto",
+            lineHeight: "1.8",
           }}
         >
-          Choose your favourite jewellery and contact us on WhatsApp.
+          Discover our elegant jewellery collection.
+          Select your favourite pieces and add them to your
+          shopping cart.
         </p>
+      </section>
 
+      {/* Jewellery Grid */}
+      <section
+        style={{
+          maxWidth: "1400px",
+          margin: "0 auto",
+          padding: "20px",
+        }}
+      >
         <div
           style={{
             display: "grid",
             gridTemplateColumns:
               "repeat(auto-fit, minmax(230px, 1fr))",
-            gap: "25px"
+            gap: "25px",
           }}
         >
-          {jewelleryImages.map((image, index) => (
-            <div
-              key={image}
+          {jewelleryImages.map((image, index) => {
+            const itemNumber = index + 1;
+
+            const inCart = cart.find(
+              (item) => item.number === itemNumber
+            );
+
+            return (
+              <article
+                key={image}
+                style={{
+                  backgroundColor: "#fffdf9",
+                  border: inCart
+                    ? "2px solid #b08a45"
+                    : "1px solid #e6ded2",
+                  padding: "12px",
+                  boxShadow: inCart
+                    ? "0 8px 25px rgba(176,138,69,0.18)"
+                    : "none",
+                  transition: "0.2s",
+                }}
+              >
+                {/* Image */}
+                <div
+                  style={{
+                    position: "relative",
+                  }}
+                >
+                  <img
+                    src={image}
+                    alt={`HUSSAFA Jewellery Item ${itemNumber}`}
+                    style={{
+                      width: "100%",
+                      height: "300px",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
+
+                  {inCart && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "10px",
+                        right: "10px",
+                        backgroundColor: "#b08a45",
+                        color: "#fff",
+                        padding: "7px 12px",
+                        fontSize: "12px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      IN CART
+                    </div>
+                  )}
+                </div>
+
+                {/* Product Info */}
+                <div
+                  style={{
+                    textAlign: "center",
+                    padding: "18px 5px 8px",
+                  }}
+                >
+                  <h2
+                    style={{
+                      color: "#2b2723",
+                      fontSize: "18px",
+                      fontWeight: "500",
+                      margin: "0 0 10px",
+                    }}
+                  >
+                    Jewellery Item {itemNumber}
+                  </h2>
+
+                  <p
+                    style={{
+                      color: "#70685f",
+                      fontSize: "14px",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    Price available on WhatsApp
+                  </p>
+
+                  {/* Add to Cart */}
+                  <button
+                    onClick={() => addToCart(itemNumber)}
+                    style={{
+                      width: "100%",
+                      border: "none",
+                      backgroundColor: inCart
+                        ? "#8d6d35"
+                        : "#b08a45",
+                      color: "#fff",
+                      padding: "13px 10px",
+                      borderRadius: "25px",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                      fontSize: "14px",
+                    }}
+                  >
+                    {inCart
+                      ? "✓ Add Another"
+                      : "🛒 Add to Cart"}
+                  </button>
+
+                  {/* WhatsApp individual */}
+                  <a
+                    href={`https://wa.me/447388454498?text=${encodeURIComponent(
+                      `Hello HUSSAFA BOUTIQUE, I am interested in Jewellery Item ${itemNumber}. Please provide the price and details.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "block",
+                      marginTop: "10px",
+                      backgroundColor: "#16a34a",
+                      color: "#fff",
+                      padding: "11px 10px",
+                      borderRadius: "25px",
+                      fontWeight: "bold",
+                      textDecoration: "none",
+                      fontSize: "14px",
+                    }}
+                  >
+                    WhatsApp Price
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Cart Section */}
+      <section
+        id="cart"
+        style={{
+          maxWidth: "900px",
+          margin: "80px auto 0",
+          padding: "35px 20px",
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "#fffdf9",
+            border: "1px solid #e6ded2",
+            padding: "30px",
+          }}
+        >
+          <h2
+            style={{
+              color: "#b08a45",
+              textAlign: "center",
+              fontSize: "32px",
+              fontWeight: "500",
+              marginBottom: "25px",
+            }}
+          >
+            Your Cart
+          </h2>
+
+          {cart.length === 0 ? (
+            <p
               style={{
-                background: "#fffdf9",
-                border: "1px solid #e6ded2",
-                padding: "12px"
+                textAlign: "center",
+                color: "#70685f",
+                padding: "20px",
               }}
             >
-              <img
-                src={image}
-                alt={"Jewellery Item " + (index + 1)}
+              Your cart is empty. Select jewellery items
+              above to add them here.
+            </p>
+          ) : (
+            <>
+              {cart.map((item) => (
+                <div
+                  key={item.number}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: "15px",
+                    padding: "15px 0",
+                    borderBottom: "1px solid #e6ded2",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <div>
+                    <strong
+                      style={{
+                        color: "#2b2723",
+                      }}
+                    >
+                      Jewellery Item {item.number}
+                    </strong>
+
+                    <p
+                      style={{
+                        color: "#70685f",
+                        margin: "5px 0 0",
+                        fontSize: "13px",
+                      }}
+                    >
+                      Price: Contact on WhatsApp
+                    </p>
+                  </div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <button
+                      onClick={() =>
+                        decreaseQuantity(item.number)
+                      }
+                      style={{
+                        width: "34px",
+                        height: "34px",
+                        border: "1px solid #d8cdbf",
+                        backgroundColor: "#f8f5ef",
+                        cursor: "pointer",
+                        fontSize: "18px",
+                      }}
+                    >
+                      −
+                    </button>
+
+                    <strong>{item.quantity}</strong>
+
+                    <button
+                      onClick={() =>
+                        increaseQuantity(item.number)
+                      }
+                      style={{
+                        width: "34px",
+                        height: "34px",
+                        border: "1px solid #d8cdbf",
+                        backgroundColor: "#f8f5ef",
+                        cursor: "pointer",
+                        fontSize: "18px",
+                      }}
+                    >
+                      +
+                    </button>
+
+                    <button
+                      onClick={() =>
+                        removeFromCart(item.number)
+                      }
+                      style={{
+                        marginLeft: "8px",
+                        border: "none",
+                        backgroundColor: "#b42318",
+                        color: "#fff",
+                        padding: "8px 12px",
+                        cursor: "pointer",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              ))}
+
+              {/* WhatsApp Cart Order */}
+              <button
+                onClick={orderOnWhatsApp}
                 style={{
                   width: "100%",
-                  height: "300px",
-                  objectFit: "cover",
-                  display: "block"
-                }}
-              />
-
-              <h2
-                style={{
-                  textAlign: "center",
-                  fontSize: "18px",
-                  fontWeight: "500",
-                  margin: "18px 0 10px"
-                }}
-              >
-                Jewellery Item {index + 1}
-              </h2>
-
-              <p
-                style={{
-                  textAlign: "center",
-                  color: "#70685f",
-                  fontSize: "14px"
-                }}
-              >
-                Price available on WhatsApp
-              </p>
-
-              <a
-                href={
-                  "https://wa.me/447388454498?text=Hello%2C%20I%20am%20interested%20in%20Jewellery%20Item%20" +
-                  (index + 1)
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  background: "#16a34a",
+                  marginTop: "25px",
+                  border: "none",
+                  backgroundColor: "#16a34a",
                   color: "#fff",
-                  padding: "13px",
-                  borderRadius: "25px",
-                  textDecoration: "none",
+                  padding: "16px 20px",
+                  borderRadius: "30px",
                   fontWeight: "bold",
-                  marginTop: "15px"
+                  cursor: "pointer",
+                  fontSize: "16px",
                 }}
               >
-                Contact on WhatsApp
-              </a>
-            </div>
-          ))}
+                💬 Order Selected Items on WhatsApp
+              </button>
+            </>
+          )}
         </div>
+      </section>
+
+      {/* Back to Shop */}
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: "50px",
+        }}
+      >
+        <a
+          href="/shop"
+          style={{
+            display: "inline-block",
+            backgroundColor: "#b08a45",
+            color: "#fff",
+            padding: "15px 35px",
+            textDecoration: "none",
+          }}
+        >
+          ← Back To Shop
+        </a>
       </div>
     </main>
   );
