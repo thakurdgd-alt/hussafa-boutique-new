@@ -1,3 +1,11 @@
+const jewelleryImages = [
+  "/jew01.jpg",
+  ...Array.from(
+    { length: 166 },
+    (_, index) => `/jew${index + 2}.jpg`
+  ),
+];
+
 export default function JewelleryPage() {
   return (
     <main
@@ -5,37 +13,213 @@ export default function JewelleryPage() {
         minHeight: "100vh",
         backgroundColor: "#f8f5ef",
         color: "#2b2723",
-        padding: "60px 20px",
-        textAlign: "center",
         fontFamily: "Arial, sans-serif",
+        paddingBottom: "70px",
       }}
     >
-      <h1
+      <nav
         style={{
-          color: "#b08a45",
-          fontSize: "50px",
+          padding: "22px 5%",
+          backgroundColor: "#fffdf9",
+          borderBottom: "1px solid #e6ded2",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "20px",
         }}
       >
-        Premium Jewellery
-      </h1>
+        <a
+          href="/"
+          style={{
+            color: "#b08a45",
+            fontSize: "25px",
+            fontWeight: "bold",
+            letterSpacing: "4px",
+            textDecoration: "none",
+          }}
+        >
+          HUSSAFA
+        </a>
 
-      <p style={{ color: "#70685f" }}>
-        HUSSAFA BOUTIQUE
-      </p>
+        <div style={{ display: "flex", gap: "25px" }}>
+          <a
+            href="/"
+            style={{
+              color: "#2b2723",
+              textDecoration: "none",
+            }}
+          >
+            Home
+          </a>
 
-      <a
-        href="/shop"
+          <a
+            href="/shop"
+            style={{
+              color: "#2b2723",
+              textDecoration: "none",
+            }}
+          >
+            Shop
+          </a>
+        </div>
+      </nav>
+
+      <section
         style={{
-          display: "inline-block",
-          marginTop: "30px",
-          backgroundColor: "#b08a45",
-          color: "#fff",
-          padding: "14px 30px",
-          textDecoration: "none",
+          textAlign: "center",
+          padding: "60px 20px 40px",
         }}
       >
-        Back To Shop
-      </a>
+        <p
+          style={{
+            color: "#b08a45",
+            letterSpacing: "5px",
+            fontSize: "13px",
+          }}
+        >
+          HUSSAFA BOUTIQUE
+        </p>
+
+        <h1
+          style={{
+            color: "#2b2723",
+            fontSize: "clamp(40px, 7vw, 65px)",
+            fontWeight: "500",
+            margin: "15px 0",
+          }}
+        >
+          Premium Jewellery
+        </h1>
+
+        <p
+          style={{
+            color: "#70685f",
+            maxWidth: "700px",
+            margin: "0 auto",
+            lineHeight: "1.8",
+          }}
+        >
+          Discover our elegant jewellery collection.
+          Contact us on WhatsApp for prices and details.
+        </p>
+      </section>
+
+      <section
+        style={{
+          maxWidth: "1400px",
+          margin: "0 auto",
+          padding: "20px",
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "25px",
+          }}
+        >
+          {jewelleryImages.map((image, index) => {
+            const itemNumber = index + 1;
+
+            const message =
+              `Hello, I am interested in Jewellery Item ${itemNumber}. Please provide price and details.`;
+
+            const whatsappLink =
+              `https://wa.me/447388454498?text=${encodeURIComponent(
+                message
+              )}`;
+
+            return (
+              <article
+                key={image}
+                style={{
+                  backgroundColor: "#fffdf9",
+                  border: "1px solid #e6ded2",
+                  padding: "12px",
+                }}
+              >
+                <img
+                  src={image}
+                  alt={`HUSSAFA Jewellery Item ${itemNumber}`}
+                  style={{
+                    width: "100%",
+                    height: "300px",
+                    objectFit: "cover",
+                    display: "block",
+                  }}
+                />
+
+                <div
+                  style={{
+                    textAlign: "center",
+                    padding: "15px 5px 8px",
+                  }}
+                >
+                  <h2
+                    style={{
+                      color: "#2b2723",
+                      fontSize: "18px",
+                      fontWeight: "500",
+                      margin: "0 0 10px",
+                    }}
+                  >
+                    Jewellery Item {itemNumber}
+                  </h2>
+
+                  <p
+                    style={{
+                      color: "#70685f",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Price: Contact us on WhatsApp
+                  </p>
+
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "block",
+                      backgroundColor: "#16a34a",
+                      color: "#fff",
+                      padding: "13px 10px",
+                      borderRadius: "25px",
+                      fontWeight: "bold",
+                      textDecoration: "none",
+                      marginTop: "15px",
+                    }}
+                  >
+                    Contact on WhatsApp
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: "50px",
+        }}
+      >
+        <a
+          href="/shop"
+          style={{
+            display: "inline-block",
+            backgroundColor: "#b08a45",
+            color: "#fff",
+            padding: "15px 35px",
+            textDecoration: "none",
+          }}
+        >
+          Back To Shop
+        </a>
+      </div>
     </main>
   );
 }
