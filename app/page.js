@@ -152,7 +152,7 @@ export default function Home() {
     src="/hussafa-logo.png"
     alt="HUSSAFA BOUTIQUE"
     style={{
-      width: "155px",
+      width: "95px",
       height: "auto",
       display: "block",
      
