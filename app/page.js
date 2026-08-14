@@ -12,7 +12,7 @@ export default function Home() {
         .hussafa-slideshow {
           position: relative;
           width: 100%;
-          max-width: 1100px;
+          max-width: 1200px;
           height: 650px;
           overflow: hidden;
           margin: 0 auto 50px auto;
