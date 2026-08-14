@@ -143,12 +143,15 @@ export default function Home() {
         <a
           href="/"
           style={{
-            color: "#b08a45",
-            fontSize: "25px",
-            fontWeight: "bold",
-            letterSpacing: "4px",
-            textDecoration: "none",
-          }}
+  color: "#b08a45",
+  fontSize: "27px",
+  fontFamily: "Georgia, 'Times New Roman', serif",
+  fontWeight: "600",
+  letterSpacing: "5px",
+  textDecoration: "none",
+  textShadow:
+    "1px 1px 0 #8f6d35, 2px 2px 3px rgba(70, 55, 40, 0.25), -1px -1px 1px rgba(255, 255, 255, 0.7)",
+}}
         >
           HUSSAFA
         </a>
