@@ -13,7 +13,7 @@ export default function Home() {
           position: relative;
           width: 100%;
           max-width: 1200px;
-          height: 650px;
+          height: 520px;
           overflow: hidden;
           margin: 0 auto 50px auto;
           background: #e9e1d5;
