@@ -155,7 +155,7 @@ export default function Home() {
       width: "155px",
       height: "auto",
       display: "block",
-      mixBlendMode: "multiply",
+     
     }}
   />
 </a>
