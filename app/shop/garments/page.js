@@ -601,9 +601,28 @@ export default function Garments() {
                   }}
                 />
 
-                <input
-                  type="tel"
-                  placeholder="Contact Number"
+               <input
+  type="tel"
+  placeholder="Contact Number"
+  value={customer.contact}
+  onChange={(e) =>
+    setCustomer({
+      ...customer,
+      contact: e.target.value,
+    })
+  }
+  style={{
+    width: "100%",
+    boxSizing: "border-box",
+    padding: "14px",
+    marginBottom: "12px",
+    border: "1px solid #d8cdbf",
+    backgroundColor: "#f8f5ef",
+    color: "#2b2723",
+    fontSize: "15px",
+  }}
+/>
+
 <input
   type="email"
   placeholder="Email Address"
@@ -614,6 +633,17 @@ export default function Garments() {
       email: e.target.value,
     })
   }
+  style={{
+    width: "100%",
+    boxSizing: "border-box",
+    padding: "14px",
+    marginBottom: "12px",
+    border: "1px solid #d8cdbf",
+    backgroundColor: "#f8f5ef",
+    color: "#2b2723",
+    fontSize: "15px",
+  }}
+/>
   style={{
     width: "100%",
     boxSizing: "border-box",
