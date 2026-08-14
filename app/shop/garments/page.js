@@ -15,14 +15,14 @@ export default function Garments() {
   const [cart, setCart] = useState([]);
 
   const [customer, setCustomer] = useState({
-  name: "",
-  contact: "",
-  email: "",
-  address: "",
-  city: "",
-  postcode: "",
-  country: "",
-});
+    name: "",
+    contact: "",
+    email: "",
+    address: "",
+    city: "",
+    postcode: "",
+    country: "",
+  });
 
   const pauseOtherVideos = (currentVideo) => {
     videos.current.forEach((video) => {
@@ -41,7 +41,10 @@ export default function Garments() {
       if (existing) {
         return currentCart.map((item) =>
           item.number === itemNumber
-            ? { ...item, quantity: item.quantity + 1 }
+            ? {
+                ...item,
+                quantity: item.quantity + 1,
+              }
             : item
         );
       }
@@ -60,7 +63,10 @@ export default function Garments() {
     setCart((currentCart) =>
       currentCart.map((item) =>
         item.number === itemNumber
-          ? { ...item, quantity: item.quantity + 1 }
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+            }
           : item
       )
     );
@@ -71,7 +77,10 @@ export default function Garments() {
       currentCart
         .map((item) =>
           item.number === itemNumber
-            ? { ...item, quantity: item.quantity - 1 }
+            ? {
+                ...item,
+                quantity: item.quantity - 1,
+              }
             : item
         )
         .filter((item) => item.quantity > 0)
@@ -80,7 +89,9 @@ export default function Garments() {
 
   const removeFromCart = (itemNumber) => {
     setCart((currentCart) =>
-      currentCart.filter((item) => item.number !== itemNumber)
+      currentCart.filter(
+        (item) => item.number !== itemNumber
+      )
     );
   };
 
@@ -91,22 +102,24 @@ export default function Garments() {
 
   const orderOnWhatsApp = () => {
     if (cart.length === 0) {
-      alert("Please add at least one garment to your cart.");
+      alert(
+        "Please add at least one garment to your cart."
+      );
       return;
     }
 
     if (
-  !customer.name.trim() ||
-  !customer.contact.trim() ||
-  !customer.email.trim() ||
-  !customer.address.trim() ||
-  !customer.city.trim() ||
-  !customer.postcode.trim() ||
-  !customer.country.trim()
-) {
-  alert("Please complete all customer details.");
-  return;
-}
+      !customer.name.trim() ||
+      !customer.contact.trim() ||
+      !customer.email.trim() ||
+      !customer.address.trim() ||
+      !customer.city.trim() ||
+      !customer.postcode.trim() ||
+      !customer.country.trim()
+    ) {
+      alert("Please complete all customer details.");
+      return;
+    }
 
     const items = cart
       .map(
@@ -121,12 +134,12 @@ export default function Garments() {
       `${items}\n\n` +
       `Customer Details:\n` +
       `Name: ${customer.name}\n` +
-`Contact: ${customer.contact}\n` +
-`Email: ${customer.email}\n` +
-`Address: ${customer.address}\n` +
-`City: ${customer.city}\n` +
-`Postcode: ${customer.postcode}\n` +
-`Country: ${customer.country}\n\n` +
+      `Contact: ${customer.contact}\n` +
+      `Email: ${customer.email}\n` +
+      `Address: ${customer.address}\n` +
+      `City: ${customer.city}\n` +
+      `Postcode: ${customer.postcode}\n` +
+      `Country: ${customer.country}\n\n` +
       `Please provide the prices and further details.`;
 
     const whatsappUrl =
@@ -376,7 +389,9 @@ export default function Garments() {
 
                   {/* Add to Cart */}
                   <button
-                    onClick={() => addToCart(itemNumber)}
+                    onClick={() =>
+                      addToCart(itemNumber)
+                    }
                     style={{
                       width: "100%",
                       border: "none",
@@ -465,6 +480,7 @@ export default function Garments() {
             </p>
           ) : (
             <>
+              {/* Cart Items */}
               {cart.map((item) => (
                 <div
                   key={item.number}
@@ -474,7 +490,8 @@ export default function Garments() {
                     justifyContent: "space-between",
                     gap: "15px",
                     padding: "15px 0",
-                    borderBottom: "1px solid #e6ded2",
+                    borderBottom:
+                      "1px solid #e6ded2",
                     flexWrap: "wrap",
                   }}
                 >
@@ -512,7 +529,8 @@ export default function Garments() {
                       style={{
                         width: "34px",
                         height: "34px",
-                        border: "1px solid #d8cdbf",
+                        border:
+                          "1px solid #d8cdbf",
                         backgroundColor: "#f8f5ef",
                         cursor: "pointer",
                         fontSize: "18px",
@@ -530,7 +548,8 @@ export default function Garments() {
                       style={{
                         width: "34px",
                         height: "34px",
-                        border: "1px solid #d8cdbf",
+                        border:
+                          "1px solid #d8cdbf",
                         backgroundColor: "#f8f5ef",
                         cursor: "pointer",
                         fontSize: "18px",
@@ -563,7 +582,8 @@ export default function Garments() {
               <div
                 style={{
                   marginTop: "35px",
-                  borderTop: "1px solid #e6ded2",
+                  borderTop:
+                    "1px solid #e6ded2",
                   paddingTop: "30px",
                 }}
               >
@@ -579,6 +599,7 @@ export default function Garments() {
                   Customer Details
                 </h3>
 
+                {/* Full Name */}
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -594,67 +615,18 @@ export default function Garments() {
                     boxSizing: "border-box",
                     padding: "14px",
                     marginBottom: "12px",
-                    border: "1px solid #d8cdbf",
+                    border:
+                      "1px solid #d8cdbf",
                     backgroundColor: "#f8f5ef",
                     color: "#2b2723",
                     fontSize: "15px",
                   }}
                 />
 
-               <input
-  type="tel"
-  placeholder="Contact Number"
-  value={customer.contact}
-  onChange={(e) =>
-    setCustomer({
-      ...customer,
-      contact: e.target.value,
-    })
-  }
-  style={{
-    width: "100%",
-    boxSizing: "border-box",
-    padding: "14px",
-    marginBottom: "12px",
-    border: "1px solid #d8cdbf",
-    backgroundColor: "#f8f5ef",
-    color: "#2b2723",
-    fontSize: "15px",
-  }}
-/>
-
-<input
-  type="email"
-  placeholder="Email Address"
-  value={customer.email}
-  onChange={(e) =>
-    setCustomer({
-      ...customer,
-      email: e.target.value,
-    })
-  }
-  style={{
-    width: "100%",
-    boxSizing: "border-box",
-    padding: "14px",
-    marginBottom: "12px",
-    border: "1px solid #d8cdbf",
-    backgroundColor: "#f8f5ef",
-    color: "#2b2723",
-    fontSize: "15px",
-  }}
-/>
-  style={{
-    width: "100%",
-    boxSizing: "border-box",
-    padding: "14px",
-    marginBottom: "12px",
-    border: "1px solid #d8cdbf",
-    backgroundColor: "#f8f5ef",
-    color: "#2b2723",
-    fontSize: "15px",
-  }}
-/>
+                {/* Contact Number */}
+                <input
+                  type="tel"
+                  placeholder="Contact Number"
                   value={customer.contact}
                   onChange={(e) =>
                     setCustomer({
@@ -667,80 +639,41 @@ export default function Garments() {
                     boxSizing: "border-box",
                     padding: "14px",
                     marginBottom: "12px",
-                    border: "1px solid #d8cdbf",
+                    border:
+                      "1px solid #d8cdbf",
                     backgroundColor: "#f8f5ef",
                     color: "#2b2723",
                     fontSize: "15px",
                   }}
                 />
 
+                {/* Email */}
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  value={customer.email}
+                  onChange={(e) =>
+                    setCustomer({
+                      ...customer,
+                      email: e.target.value,
+                    })
+                  }
+                  style={{
+                    width: "100%",
+                    boxSizing: "border-box",
+                    padding: "14px",
+                    marginBottom: "12px",
+                    border:
+                      "1px solid #d8cdbf",
+                    backgroundColor: "#f8f5ef",
+                    color: "#2b2723",
+                    fontSize: "15px",
+                  }}
+                />
+
+                {/* Delivery Address */}
                 <textarea
                   placeholder="Delivery Address"
-<input
-  type="text"
-  placeholder="City"
-  value={customer.city}
-  onChange={(e) =>
-    setCustomer({
-      ...customer,
-      city: e.target.value,
-    })
-  }
-  style={{
-    width: "100%",
-    boxSizing: "border-box",
-    padding: "14px",
-    marginBottom: "12px",
-    border: "1px solid #d8cdbf",
-    backgroundColor: "#f8f5ef",
-    color: "#2b2723",
-    fontSize: "15px",
-  }}
-/>
-
-<input
-  type="text"
-  placeholder="Postcode"
-  value={customer.postcode}
-  onChange={(e) =>
-    setCustomer({
-      ...customer,
-      postcode: e.target.value,
-    })
-  }
-  style={{
-    width: "100%",
-    boxSizing: "border-box",
-    padding: "14px",
-    marginBottom: "12px",
-    border: "1px solid #d8cdbf",
-    backgroundColor: "#f8f5ef",
-    color: "#2b2723",
-    fontSize: "15px",
-  }}
-/>
-
-<input
-  type="text"
-  placeholder="Country"
-  value={customer.country}
-  onChange={(e) =>
-    setCustomer({
-      ...customer,
-      country: e.target.value,
-    })
-  }
-  style={{
-    width: "100%",
-    boxSizing: "border-box",
-    padding: "14px",
-    marginBottom: "15px",
-    border: "1px solid #d8cdbf",
-    backgroundColor: "#f8f5ef",
-    color: "#2b2723",
-    fontSize: "15px",
-  }}
-/>
                   value={customer.address}
                   onChange={(e) =>
                     setCustomer({
@@ -748,17 +681,90 @@ export default function Garments() {
                       address: e.target.value,
                     })
                   }
-                  rows="4"
+                  rows={4}
+                  style={{
+                    width: "100%",
+                    boxSizing: "border-box",
+                    padding: "14px",
+                    marginBottom: "12px",
+                    border:
+                      "1px solid #d8cdbf",
+                    backgroundColor: "#f8f5ef",
+                    color: "#2b2723",
+                    fontSize: "15px",
+                    resize: "vertical",
+                  }}
+                />
+
+                {/* City */}
+                <input
+                  type="text"
+                  placeholder="City"
+                  value={customer.city}
+                  onChange={(e) =>
+                    setCustomer({
+                      ...customer,
+                      city: e.target.value,
+                    })
+                  }
+                  style={{
+                    width: "100%",
+                    boxSizing: "border-box",
+                    padding: "14px",
+                    marginBottom: "12px",
+                    border:
+                      "1px solid #d8cdbf",
+                    backgroundColor: "#f8f5ef",
+                    color: "#2b2723",
+                    fontSize: "15px",
+                  }}
+                />
+
+                {/* Postcode */}
+                <input
+                  type="text"
+                  placeholder="Postcode"
+                  value={customer.postcode}
+                  onChange={(e) =>
+                    setCustomer({
+                      ...customer,
+                      postcode: e.target.value,
+                    })
+                  }
+                  style={{
+                    width: "100%",
+                    boxSizing: "border-box",
+                    padding: "14px",
+                    marginBottom: "12px",
+                    border:
+                      "1px solid #d8cdbf",
+                    backgroundColor: "#f8f5ef",
+                    color: "#2b2723",
+                    fontSize: "15px",
+                  }}
+                />
+
+                {/* Country */}
+                <input
+                  type="text"
+                  placeholder="Country"
+                  value={customer.country}
+                  onChange={(e) =>
+                    setCustomer({
+                      ...customer,
+                      country: e.target.value,
+                    })
+                  }
                   style={{
                     width: "100%",
                     boxSizing: "border-box",
                     padding: "14px",
                     marginBottom: "15px",
-                    border: "1px solid #d8cdbf",
+                    border:
+                      "1px solid #d8cdbf",
                     backgroundColor: "#f8f5ef",
                     color: "#2b2723",
                     fontSize: "15px",
-                    resize: "vertical",
                   }}
                 />
 
@@ -770,9 +776,9 @@ export default function Garments() {
                     lineHeight: "1.6",
                   }}
                 >
-                  Price will be confirmed through WhatsApp.
-                  Payment is not required on the website at
-                  this stage.
+                  Price will be confirmed through
+                  WhatsApp. Payment is not required
+                  on the website at this stage.
                 </p>
 
                 <button
