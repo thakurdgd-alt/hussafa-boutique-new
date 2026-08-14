@@ -15,10 +15,14 @@ export default function Garments() {
   const [cart, setCart] = useState([]);
 
   const [customer, setCustomer] = useState({
-    name: "",
-    contact: "",
-    address: "",
-  });
+  name: "",
+  contact: "",
+  email: "",
+  address: "",
+  city: "",
+  postcode: "",
+  country: "",
+});
 
   const pauseOtherVideos = (currentVideo) => {
     videos.current.forEach((video) => {
@@ -92,13 +96,17 @@ export default function Garments() {
     }
 
     if (
-      !customer.name.trim() ||
-      !customer.contact.trim() ||
-      !customer.address.trim()
-    ) {
-      alert("Please enter your name, contact number and address.");
-      return;
-    }
+  !customer.name.trim() ||
+  !customer.contact.trim() ||
+  !customer.email.trim() ||
+  !customer.address.trim() ||
+  !customer.city.trim() ||
+  !customer.postcode.trim() ||
+  !customer.country.trim()
+) {
+  alert("Please complete all customer details.");
+  return;
+}
 
     const items = cart
       .map(
@@ -113,8 +121,12 @@ export default function Garments() {
       `${items}\n\n` +
       `Customer Details:\n` +
       `Name: ${customer.name}\n` +
-      `Contact: ${customer.contact}\n` +
-      `Address: ${customer.address}\n\n` +
+`Contact: ${customer.contact}\n` +
+`Email: ${customer.email}\n` +
+`Address: ${customer.address}\n` +
+`City: ${customer.city}\n` +
+`Postcode: ${customer.postcode}\n` +
+`Country: ${customer.country}\n\n` +
       `Please provide the prices and further details.`;
 
     const whatsappUrl =
@@ -592,6 +604,27 @@ export default function Garments() {
                 <input
                   type="tel"
                   placeholder="Contact Number"
+<input
+  type="email"
+  placeholder="Email Address"
+  value={customer.email}
+  onChange={(e) =>
+    setCustomer({
+      ...customer,
+      email: e.target.value,
+    })
+  }
+  style={{
+    width: "100%",
+    boxSizing: "border-box",
+    padding: "14px",
+    marginBottom: "12px",
+    border: "1px solid #d8cdbf",
+    backgroundColor: "#f8f5ef",
+    color: "#2b2723",
+    fontSize: "15px",
+  }}
+/>
                   value={customer.contact}
                   onChange={(e) =>
                     setCustomer({
@@ -613,6 +646,71 @@ export default function Garments() {
 
                 <textarea
                   placeholder="Delivery Address"
+<input
+  type="text"
+  placeholder="City"
+  value={customer.city}
+  onChange={(e) =>
+    setCustomer({
+      ...customer,
+      city: e.target.value,
+    })
+  }
+  style={{
+    width: "100%",
+    boxSizing: "border-box",
+    padding: "14px",
+    marginBottom: "12px",
+    border: "1px solid #d8cdbf",
+    backgroundColor: "#f8f5ef",
+    color: "#2b2723",
+    fontSize: "15px",
+  }}
+/>
+
+<input
+  type="text"
+  placeholder="Postcode"
+  value={customer.postcode}
+  onChange={(e) =>
+    setCustomer({
+      ...customer,
+      postcode: e.target.value,
+    })
+  }
+  style={{
+    width: "100%",
+    boxSizing: "border-box",
+    padding: "14px",
+    marginBottom: "12px",
+    border: "1px solid #d8cdbf",
+    backgroundColor: "#f8f5ef",
+    color: "#2b2723",
+    fontSize: "15px",
+  }}
+/>
+
+<input
+  type="text"
+  placeholder="Country"
+  value={customer.country}
+  onChange={(e) =>
+    setCustomer({
+      ...customer,
+      country: e.target.value,
+    })
+  }
+  style={{
+    width: "100%",
+    boxSizing: "border-box",
+    padding: "14px",
+    marginBottom: "15px",
+    border: "1px solid #d8cdbf",
+    backgroundColor: "#f8f5ef",
+    color: "#2b2723",
+    fontSize: "15px",
+  }}
+/>
                   value={customer.address}
                   onChange={(e) =>
                     setCustomer({
