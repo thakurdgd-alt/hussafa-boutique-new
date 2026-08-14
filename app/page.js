@@ -26,7 +26,7 @@ export default function Home() {
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: 500;
-  animation: hussafaMarquee 25s linear infinite;
+  animation: hussafaMarquee 40s linear infinite;
 }
 
 @keyframes hussafaMarquee {
