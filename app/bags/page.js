@@ -10,6 +10,17 @@ const bagImages = Array.from(
 export default function BagsPage() {
   const [cart, setCart] = useState([]);
 
+  const [customer, setCustomer] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    city: "",
+    postcode: "",
+  });
+
+  const [showForm, setShowForm] = useState(false);
+
   const addToCart = (itemNumber) => {
     setCart((currentCart) => {
       const existing = currentCart.find(
@@ -67,7 +78,18 @@ export default function BagsPage() {
     0
   );
 
-  const orderOnWhatsApp = () => {
+  const handleCustomerChange = (event) => {
+    const { name, value } = event.target;
+
+    setCustomer((currentCustomer) => ({
+      ...currentCustomer,
+      [name]: value,
+    }));
+  };
+
+  const sendOrderOnWhatsApp = (event) => {
+    event.preventDefault();
+
     if (cart.length === 0) return;
 
     const items = cart
@@ -79,9 +101,17 @@ export default function BagsPage() {
 
     const message =
       `Hello HUSSAFA BOUTIQUE,\n\n` +
-      `I would like to order the following bags:\n\n` +
+      `I would like to place an order for the following bags:\n\n` +
       `${items}\n\n` +
-      `Please provide the prices and further details.`;
+      `CUSTOMER DETAILS\n` +
+      `Name: ${customer.name}\n` +
+      `Phone / WhatsApp: ${customer.phone}\n` +
+      `Email: ${customer.email || "Not provided"}\n` +
+      `Address: ${customer.address}\n` +
+      `City: ${customer.city}\n` +
+      `Postcode: ${customer.postcode}\n\n` +
+      `Please provide the prices and further details.\n\n` +
+      `Payment has not been made yet.`;
 
     const whatsappUrl =
       `https://wa.me/447388454498?text=${encodeURIComponent(
@@ -114,23 +144,23 @@ export default function BagsPage() {
           gap: "20px",
         }}
       >
-       <a
-  href="/"
-  style={{
-    display: "inline-block",
-    textDecoration: "none",
-  }}
->
-  <img
-    src="/hussafa-logo.png"
-    alt="HUSSAFA BOUTIQUE"
-    style={{
-      width: "155px",
-      height: "auto",
-      display: "block",
-    }}
-  />
-</a>
+        <a
+          href="/"
+          style={{
+            display: "inline-block",
+            textDecoration: "none",
+          }}
+        >
+          <img
+            src="/hussafa-logo.png"
+            alt="HUSSAFA BOUTIQUE"
+            style={{
+              width: "155px",
+              height: "auto",
+              display: "block",
+            }}
+          />
+        </a>
 
         <div
           style={{
@@ -503,24 +533,237 @@ export default function BagsPage() {
                 </div>
               ))}
 
-              {/* WhatsApp Cart Order */}
-              <button
-                onClick={orderOnWhatsApp}
-                style={{
-                  width: "100%",
-                  marginTop: "25px",
-                  border: "none",
-                  backgroundColor: "#16a34a",
-                  color: "#fff",
-                  padding: "16px 20px",
-                  borderRadius: "30px",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                  fontSize: "16px",
-                }}
-              >
-                💬 Order Selected Bags on WhatsApp
-              </button>
+              {/* Continue to Order */}
+              {!showForm && (
+                <button
+                  onClick={() => setShowForm(true)}
+                  style={{
+                    width: "100%",
+                    marginTop: "25px",
+                    border: "none",
+                    backgroundColor: "#b08a45",
+                    color: "#fff",
+                    padding: "16px 20px",
+                    borderRadius: "30px",
+                    fontWeight: "bold",
+                    cursor: "pointer",
+                    fontSize: "16px",
+                  }}
+                >
+                  🛍️ Continue to Order
+                </button>
+              )}
+
+              {/* Customer Details Form */}
+              {showForm && (
+                <form
+                  onSubmit={sendOrderOnWhatsApp}
+                  style={{
+                    marginTop: "30px",
+                    padding: "25px",
+                    backgroundColor: "#f8f5ef",
+                    border: "1px solid #e6ded2",
+                  }}
+                >
+                  <h3
+                    style={{
+                      color: "#2b2723",
+                      textAlign: "center",
+                      fontSize: "25px",
+                      fontWeight: "500",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    Customer Details
+                  </h3>
+
+                  <p
+                    style={{
+                      textAlign: "center",
+                      color: "#70685f",
+                      fontSize: "14px",
+                      marginBottom: "25px",
+                      lineHeight: "1.6",
+                    }}
+                  >
+                    Please enter your details so we can
+                    contact you about your order.
+                  </p>
+
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns:
+                        "repeat(auto-fit, minmax(250px, 1fr))",
+                      gap: "15px",
+                    }}
+                  >
+                    <input
+                      type="text"
+                      name="name"
+                      value={customer.name}
+                      onChange={handleCustomerChange}
+                      placeholder="Full Name *"
+                      required
+                      style={{
+                        width: "100%",
+                        boxSizing: "border-box",
+                        padding: "14px",
+                        border: "1px solid #d8cdbf",
+                        backgroundColor: "#fffdf9",
+                        color: "#2b2723",
+                        fontSize: "15px",
+                      }}
+                    />
+
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={customer.phone}
+                      onChange={handleCustomerChange}
+                      placeholder="Phone / WhatsApp Number *"
+                      required
+                      style={{
+                        width: "100%",
+                        boxSizing: "border-box",
+                        padding: "14px",
+                        border: "1px solid #d8cdbf",
+                        backgroundColor: "#fffdf9",
+                        color: "#2b2723",
+                        fontSize: "15px",
+                      }}
+                    />
+
+                    <input
+                      type="email"
+                      name="email"
+                      value={customer.email}
+                      onChange={handleCustomerChange}
+                      placeholder="Email Address (Optional)"
+                      style={{
+                        width: "100%",
+                        boxSizing: "border-box",
+                        padding: "14px",
+                        border: "1px solid #d8cdbf",
+                        backgroundColor: "#fffdf9",
+                        color: "#2b2723",
+                        fontSize: "15px",
+                      }}
+                    />
+
+                    <input
+                      type="text"
+                      name="city"
+                      value={customer.city}
+                      onChange={handleCustomerChange}
+                      placeholder="City *"
+                      required
+                      style={{
+                        width: "100%",
+                        boxSizing: "border-box",
+                        padding: "14px",
+                        border: "1px solid #d8cdbf",
+                        backgroundColor: "#fffdf9",
+                        color: "#2b2723",
+                        fontSize: "15px",
+                      }}
+                    />
+
+                    <input
+                      type="text"
+                      name="postcode"
+                      value={customer.postcode}
+                      onChange={handleCustomerChange}
+                      placeholder="Postcode *"
+                      required
+                      style={{
+                        width: "100%",
+                        boxSizing: "border-box",
+                        padding: "14px",
+                        border: "1px solid #d8cdbf",
+                        backgroundColor: "#fffdf9",
+                        color: "#2b2723",
+                        fontSize: "15px",
+                      }}
+                    />
+
+                    <textarea
+                      name="address"
+                      value={customer.address}
+                      onChange={handleCustomerChange}
+                      placeholder="Full Delivery Address *"
+                      required
+                      rows="4"
+                      style={{
+                        width: "100%",
+                        boxSizing: "border-box",
+                        padding: "14px",
+                        border: "1px solid #d8cdbf",
+                        backgroundColor: "#fffdf9",
+                        color: "#2b2723",
+                        fontSize: "15px",
+                        resize: "vertical",
+                        gridColumn: "1 / -1",
+                      }}
+                    />
+                  </div>
+
+                  <div
+                    style={{
+                      marginTop: "20px",
+                      padding: "15px",
+                      backgroundColor: "#fffdf9",
+                      border: "1px solid #e6ded2",
+                      color: "#70685f",
+                      fontSize: "14px",
+                      lineHeight: "1.7",
+                    }}
+                  >
+                    <strong style={{ color: "#2b2723" }}>
+                      Order note:
+                    </strong>{" "}
+                    Product prices will be confirmed through
+                    WhatsApp. No payment is required at this
+                    stage.
+                  </div>
+
+                  <button
+                    type="submit"
+                    style={{
+                      width: "100%",
+                      marginTop: "20px",
+                      border: "none",
+                      backgroundColor: "#16a34a",
+                      color: "#fff",
+                      padding: "16px 20px",
+                      borderRadius: "30px",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                      fontSize: "16px",
+                    }}
+                  >
+                    💬 Send Order on WhatsApp
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowForm(false)}
+                    style={{
+                      width: "100%",
+                      marginTop: "10px",
+                      border: "1px solid #d8cdbf",
+                      backgroundColor: "#fffdf9",
+                      color: "#70685f",
+                      padding: "13px 20px",
+                      borderRadius: "30px",
+                      cursor: "pointer",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </form>
+              )}
             </>
           )}
         </div>
