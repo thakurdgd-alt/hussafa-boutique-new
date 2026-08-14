@@ -9,6 +9,17 @@ const jewelleryImages = [
 
 export default function JewelleryPage() {
   const [cart, setCart] = useState([]);
+  const [showCheckout, setShowCheckout] = useState(false);
+
+  const [customer, setCustomer] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    city: "",
+    postcode: "",
+    country: "",
+  });
 
   const addToCart = (itemNumber) => {
     setCart((currentCart) => {
@@ -67,8 +78,20 @@ export default function JewelleryPage() {
     0
   );
 
-  const orderOnWhatsApp = () => {
-    if (cart.length === 0) return;
+  const handleCustomerChange = (field, value) => {
+    setCustomer((currentCustomer) => ({
+      ...currentCustomer,
+      [field]: value,
+    }));
+  };
+
+  const placeOrder = (event) => {
+    event.preventDefault();
+
+    if (cart.length === 0) {
+      alert("Please add at least one jewellery item to your cart.");
+      return;
+    }
 
     const items = cart
       .map(
@@ -79,9 +102,19 @@ export default function JewelleryPage() {
 
     const message =
       `Hello HUSSAFA BOUTIQUE,\n\n` +
-      `I would like to order the following jewellery items:\n\n` +
+      `NEW WEBSITE ORDER\n\n` +
+      `CUSTOMER DETAILS\n` +
+      `Name: ${customer.name}\n` +
+      `Contact: ${customer.phone}\n` +
+      `Email: ${customer.email}\n` +
+      `Address: ${customer.address}\n` +
+      `City: ${customer.city}\n` +
+      `Postcode: ${customer.postcode}\n` +
+      `Country: ${customer.country}\n\n` +
+      `ORDER DETAILS\n` +
       `${items}\n\n` +
-      `Please provide the prices and further details.`;
+      `Please provide the prices and further details.\n` +
+      `Payment has not been made online.`;
 
     const whatsappUrl =
       `https://wa.me/447388454498?text=${encodeURIComponent(
@@ -114,24 +147,24 @@ export default function JewelleryPage() {
           gap: "20px",
         }}
       >
-       <a
-  href="/"
-  style={{
-    display: "flex",
-    alignItems: "center",
-    textDecoration: "none",
-  }}
->
-  <img
-    src="/hussafa-logo.png"
-    alt="HUSSAFA BOUTIQUE"
-    style={{
-      width: "95px",
-      height: "auto",
-      display: "block",
-    }}
-  />
-</a>
+        <a
+          href="/"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            textDecoration: "none",
+          }}
+        >
+          <img
+            src="/hussafa-logo.png"
+            alt="HUSSAFA BOUTIQUE"
+            style={{
+              width: "95px",
+              height: "auto",
+              display: "block",
+            }}
+          />
+        </a>
 
         <div
           style={{
@@ -160,7 +193,6 @@ export default function JewelleryPage() {
             Shop
           </a>
 
-          {/* Cart */}
           <a
             href="#cart"
             style={{
@@ -505,12 +537,375 @@ export default function JewelleryPage() {
                 </div>
               ))}
 
-              {/* WhatsApp Cart Order */}
+              {/* Checkout Button */}
               <button
-                onClick={orderOnWhatsApp}
+                onClick={() => setShowCheckout(true)}
                 style={{
                   width: "100%",
                   marginTop: "25px",
+                  border: "none",
+                  backgroundColor: "#b08a45",
+                  color: "#fff",
+                  padding: "16px 20px",
+                  borderRadius: "30px",
+                  fontWeight: "bold",
+                  cursor: "pointer",
+                  fontSize: "16px",
+                }}
+              >
+                🛍️ Continue to Checkout
+              </button>
+            </>
+          )}
+        </div>
+      </section>
+
+      {/* Checkout */}
+      {showCheckout && cart.length > 0 && (
+        <section
+          style={{
+            maxWidth: "800px",
+            margin: "50px auto 0",
+            padding: "20px",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#fffdf9",
+              border: "1px solid #e6ded2",
+              padding: "35px",
+              boxShadow: "0 10px 35px rgba(70,55,40,0.08)",
+            }}
+          >
+            <h2
+              style={{
+                textAlign: "center",
+                color: "#b08a45",
+                fontSize: "32px",
+                fontWeight: "500",
+                marginBottom: "10px",
+              }}
+            >
+              Customer Details
+            </h2>
+
+            <p
+              style={{
+                textAlign: "center",
+                color: "#70685f",
+                lineHeight: "1.7",
+                marginBottom: "30px",
+              }}
+            >
+              Please enter your delivery details below.
+              Product prices will be confirmed through WhatsApp.
+            </p>
+
+            <form onSubmit={placeOrder}>
+              {/* Name */}
+              <label
+                style={{
+                  display: "block",
+                  color: "#2b2723",
+                  fontWeight: "bold",
+                  marginBottom: "8px",
+                }}
+              >
+                Full Name *
+              </label>
+
+              <input
+                type="text"
+                required
+                value={customer.name}
+                onChange={(event) =>
+                  handleCustomerChange(
+                    "name",
+                    event.target.value
+                  )
+                }
+                placeholder="Enter your full name"
+                style={{
+                  width: "100%",
+                  boxSizing: "border-box",
+                  padding: "14px",
+                  marginBottom: "20px",
+                  border: "1px solid #d8cdbf",
+                  backgroundColor: "#f8f5ef",
+                  color: "#2b2723",
+                  fontSize: "15px",
+                  outline: "none",
+                }}
+              />
+
+              {/* Phone */}
+              <label
+                style={{
+                  display: "block",
+                  color: "#2b2723",
+                  fontWeight: "bold",
+                  marginBottom: "8px",
+                }}
+              >
+                Contact Number *
+              </label>
+
+              <input
+                type="tel"
+                required
+                value={customer.phone}
+                onChange={(event) =>
+                  handleCustomerChange(
+                    "phone",
+                    event.target.value
+                  )
+                }
+                placeholder="Enter your contact number"
+                style={{
+                  width: "100%",
+                  boxSizing: "border-box",
+                  padding: "14px",
+                  marginBottom: "20px",
+                  border: "1px solid #d8cdbf",
+                  backgroundColor: "#f8f5ef",
+                  color: "#2b2723",
+                  fontSize: "15px",
+                  outline: "none",
+                }}
+              />
+
+              {/* Email */}
+              <label
+                style={{
+                  display: "block",
+                  color: "#2b2723",
+                  fontWeight: "bold",
+                  marginBottom: "8px",
+                }}
+              >
+                Email Address *
+              </label>
+
+              <input
+                type="email"
+                required
+                value={customer.email}
+                onChange={(event) =>
+                  handleCustomerChange(
+                    "email",
+                    event.target.value
+                  )
+                }
+                placeholder="Enter your email address"
+                style={{
+                  width: "100%",
+                  boxSizing: "border-box",
+                  padding: "14px",
+                  marginBottom: "20px",
+                  border: "1px solid #d8cdbf",
+                  backgroundColor: "#f8f5ef",
+                  color: "#2b2723",
+                  fontSize: "15px",
+                  outline: "none",
+                }}
+              />
+
+              {/* Address */}
+              <label
+                style={{
+                  display: "block",
+                  color: "#2b2723",
+                  fontWeight: "bold",
+                  marginBottom: "8px",
+                }}
+              >
+                Full Delivery Address *
+              </label>
+
+              <textarea
+                required
+                value={customer.address}
+                onChange={(event) =>
+                  handleCustomerChange(
+                    "address",
+                    event.target.value
+                  )
+                }
+                placeholder="House number, street, area..."
+                rows="4"
+                style={{
+                  width: "100%",
+                  boxSizing: "border-box",
+                  padding: "14px",
+                  marginBottom: "20px",
+                  border: "1px solid #d8cdbf",
+                  backgroundColor: "#f8f5ef",
+                  color: "#2b2723",
+                  fontSize: "15px",
+                  outline: "none",
+                  resize: "vertical",
+                  fontFamily: "Arial, sans-serif",
+                }}
+              />
+
+              {/* City */}
+              <label
+                style={{
+                  display: "block",
+                  color: "#2b2723",
+                  fontWeight: "bold",
+                  marginBottom: "8px",
+                }}
+              >
+                City *
+              </label>
+
+              <input
+                type="text"
+                required
+                value={customer.city}
+                onChange={(event) =>
+                  handleCustomerChange(
+                    "city",
+                    event.target.value
+                  )
+                }
+                placeholder="Enter your city"
+                style={{
+                  width: "100%",
+                  boxSizing: "border-box",
+                  padding: "14px",
+                  marginBottom: "20px",
+                  border: "1px solid #d8cdbf",
+                  backgroundColor: "#f8f5ef",
+                  color: "#2b2723",
+                  fontSize: "15px",
+                  outline: "none",
+                }}
+              />
+
+              {/* Postcode */}
+              <label
+                style={{
+                  display: "block",
+                  color: "#2b2723",
+                  fontWeight: "bold",
+                  marginBottom: "8px",
+                }}
+              >
+                Postcode *
+              </label>
+
+              <input
+                type="text"
+                required
+                value={customer.postcode}
+                onChange={(event) =>
+                  handleCustomerChange(
+                    "postcode",
+                    event.target.value
+                  )
+                }
+                placeholder="Enter your postcode"
+                style={{
+                  width: "100%",
+                  boxSizing: "border-box",
+                  padding: "14px",
+                  marginBottom: "20px",
+                  border: "1px solid #d8cdbf",
+                  backgroundColor: "#f8f5ef",
+                  color: "#2b2723",
+                  fontSize: "15px",
+                  outline: "none",
+                }}
+              />
+
+              {/* Country */}
+              <label
+                style={{
+                  display: "block",
+                  color: "#2b2723",
+                  fontWeight: "bold",
+                  marginBottom: "8px",
+                }}
+              >
+                Country *
+              </label>
+
+              <input
+                type="text"
+                required
+                value={customer.country}
+                onChange={(event) =>
+                  handleCustomerChange(
+                    "country",
+                    event.target.value
+                  )
+                }
+                placeholder="Enter your country"
+                style={{
+                  width: "100%",
+                  boxSizing: "border-box",
+                  padding: "14px",
+                  marginBottom: "25px",
+                  border: "1px solid #d8cdbf",
+                  backgroundColor: "#f8f5ef",
+                  color: "#2b2723",
+                  fontSize: "15px",
+                  outline: "none",
+                }}
+              />
+
+              {/* Order Summary */}
+              <div
+                style={{
+                  backgroundColor: "#f8f5ef",
+                  border: "1px solid #e6ded2",
+                  padding: "20px",
+                  marginBottom: "25px",
+                }}
+              >
+                <h3
+                  style={{
+                    color: "#b08a45",
+                    marginTop: "0",
+                    marginBottom: "15px",
+                  }}
+                >
+                  Your Order
+                </h3>
+
+                {cart.map((item) => (
+                  <p
+                    key={item.number}
+                    style={{
+                      color: "#70685f",
+                      margin: "8px 0",
+                    }}
+                  >
+                    Jewellery Item {item.number} ×{" "}
+                    {item.quantity}
+                  </p>
+                ))}
+
+                <p
+                  style={{
+                    color: "#b08a45",
+                    fontWeight: "bold",
+                    marginTop: "15px",
+                    paddingTop: "15px",
+                    borderTop: "1px solid #d8cdbf",
+                  }}
+                >
+                  Price: Please contact us on WhatsApp
+                </p>
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                style={{
+                  width: "100%",
                   border: "none",
                   backgroundColor: "#16a34a",
                   color: "#fff",
@@ -521,12 +916,31 @@ export default function JewelleryPage() {
                   fontSize: "16px",
                 }}
               >
-                💬 Order Selected Items on WhatsApp
+                💬 Place Order on WhatsApp
               </button>
-            </>
-          )}
-        </div>
-      </section>
+
+              <button
+                type="button"
+                onClick={() => setShowCheckout(false)}
+                style={{
+                  width: "100%",
+                  marginTop: "12px",
+                  border: "1px solid #d8cdbf",
+                  backgroundColor: "#fffdf9",
+                  color: "#70685f",
+                  padding: "14px 20px",
+                  borderRadius: "30px",
+                  fontWeight: "bold",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                }}
+              >
+                ← Back to Cart
+              </button>
+            </form>
+          </div>
+        </section>
+      )}
 
       {/* Back to Shop */}
       <div
