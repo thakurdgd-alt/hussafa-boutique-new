@@ -114,18 +114,23 @@ export default function BagsPage() {
           gap: "20px",
         }}
       >
-        <a
-          href="/"
-          style={{
-            color: "#b08a45",
-            fontSize: "25px",
-            fontWeight: "bold",
-            letterSpacing: "4px",
-            textDecoration: "none",
-          }}
-        >
-          HUSSAFA
-        </a>
+       <a
+  href="/"
+  style={{
+    display: "inline-block",
+    textDecoration: "none",
+  }}
+>
+  <img
+    src="/hussafa-logo.png"
+    alt="HUSSAFA BOUTIQUE"
+    style={{
+      width: "155px",
+      height: "auto",
+      display: "block",
+    }}
+  />
+</a>
 
         <div
           style={{
