@@ -114,18 +114,24 @@ export default function JewelleryPage() {
           gap: "20px",
         }}
       >
-        <a
-          href="/"
-          style={{
-            color: "#b08a45",
-            fontSize: "25px",
-            fontWeight: "bold",
-            letterSpacing: "4px",
-            textDecoration: "none",
-          }}
-        >
-          HUSSAFA
-        </a>
+       <a
+  href="/"
+  style={{
+    display: "flex",
+    alignItems: "center",
+    textDecoration: "none",
+  }}
+>
+  <img
+    src="/hussafa-logo.png"
+    alt="HUSSAFA BOUTIQUE"
+    style={{
+      width: "95px",
+      height: "auto",
+      display: "block",
+    }}
+  />
+</a>
 
         <div
           style={{
