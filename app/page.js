@@ -149,7 +149,7 @@ export default function Home() {
   }}
 >
   <img
-    src="/hussafa-logo.jpg"
+    src="/hussafa-logo.png"
     alt="HUSSAFA BOUTIQUE"
     style={{
       width: "155px",
