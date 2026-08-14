@@ -20,7 +20,7 @@ export default function Home() {
           box-shadow: 0 15px 45px rgba(70, 55, 40, 0.12);
         }
 
-       .hussafa-slide {
+     .hussafa-slide {
   position: absolute;
   top: 0;
   left: 0;
@@ -28,7 +28,6 @@ export default function Home() {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: scale(1);
   animation: hussafaFade 35s infinite;
 }
 
