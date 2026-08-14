@@ -12,7 +12,7 @@ export default function Home() {
         .hussafa-slideshow {
           position: relative;
           width: 100%;
-          max-width: 1200px;
+          max-width: 1100px;
           height: 650px;
           overflow: hidden;
           margin: 0 auto 50px auto;
@@ -20,16 +20,17 @@ export default function Home() {
           box-shadow: 0 15px 45px rgba(70, 55, 40, 0.12);
         }
 
-        .hussafa-slide {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          opacity: 0;
-          animation: hussafaFade 35s infinite;
-        }
+       .hussafa-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1);
+  animation: hussafaFade 35s infinite;
+}
 
         .hussafa-slide:nth-child(1) {
           animation-delay: 0s;
