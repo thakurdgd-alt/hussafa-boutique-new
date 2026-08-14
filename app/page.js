@@ -1,4 +1,3 @@
-```jsx
 export default function Home() {
   return (
     <main
@@ -95,7 +94,6 @@ export default function Home() {
         }
       `}</style>
 
-      {/* Navigation */}
       <nav
         style={{
           padding: "22px 5%",
@@ -132,7 +130,10 @@ export default function Home() {
             Home
           </a>
 
-          <a href="/shop" style={{ color: "#2b2723", textDecoration: "none" }}>
+          <a
+            href="/shop"
+            style={{ color: "#2b2723", textDecoration: "none" }}
+          >
             Shop
           </a>
 
@@ -152,7 +153,6 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero */}
       <section
         style={{
           minHeight: "88vh",
@@ -160,7 +160,6 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        {/* Automatic Home Slideshow */}
         <div className="hussafa-slideshow">
           <img
             className="hussafa-slide"
@@ -263,7 +262,6 @@ export default function Home() {
         </a>
       </section>
 
-      {/* About */}
       <section
         id="about"
         style={{
@@ -308,7 +306,6 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Why Choose Us */}
       <section
         style={{
           padding: "100px 20px",
@@ -395,7 +392,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact */}
       <section
         id="contact"
         style={{
@@ -485,7 +481,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer
         style={{
           borderTop: "1px solid #e6ded2",
@@ -500,4 +495,3 @@ export default function Home() {
     </main>
   );
 }
-```
