@@ -9,6 +9,35 @@ export default function Home() {
       }}
     >
       <style>{`
+      .hussafa-marquee {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto 25px auto;
+  padding: 12px 0;
+  background: #fffdf9;
+  border-top: 1px solid #e6ded2;
+  border-bottom: 1px solid #e6ded2;
+}
+
+.hussafa-marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  color: #b08a45;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  animation: hussafaMarquee 25s linear infinite;
+}
+
+@keyframes hussafaMarquee {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
         .hussafa-slideshow {
           position: relative;
           width: 100%;
@@ -165,6 +194,11 @@ export default function Home() {
           textAlign: "center",
         }}
       >
+        <div className="hussafa-marquee">
+  <div className="hussafa-marquee-track">
+    ✨ HUSSAFA BOUTIQUE • LUXURY FASHION HOUSE • PREMIUM COLLECTION • EXCLUSIVE DESIGNS • WORLDWIDE SERVICE • EMAIL: umairaabdullah2018@gmail.com • ✨
+  </div>
+</div>
         <div className="hussafa-slideshow">
           <img
             className="hussafa-slide"
