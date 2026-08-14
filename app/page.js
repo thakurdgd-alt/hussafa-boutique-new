@@ -1,3 +1,4 @@
+```jsx
 export default function Home() {
   return (
     <main
@@ -28,7 +29,7 @@ export default function Home() {
           height: 100%;
           object-fit: cover;
           opacity: 0;
-          animation: hussafaFade 15s infinite;
+          animation: hussafaFade 35s infinite;
         }
 
         .hussafa-slide:nth-child(1) {
@@ -42,35 +43,37 @@ export default function Home() {
         .hussafa-slide:nth-child(3) {
           animation-delay: 10s;
         }
-.hussafa-slide:nth-child(4) {
-  animation-delay: 15s;
-}
 
-.hussafa-slide:nth-child(5) {
-  animation-delay: 20s;
-}
+        .hussafa-slide:nth-child(4) {
+          animation-delay: 15s;
+        }
 
-.hussafa-slide:nth-child(6) {
-  animation-delay: 25s;
-}
+        .hussafa-slide:nth-child(5) {
+          animation-delay: 20s;
+        }
 
-.hussafa-slide:nth-child(7) {
-  animation-delay: 30s;
-}
+        .hussafa-slide:nth-child(6) {
+          animation-delay: 25s;
+        }
+
+        .hussafa-slide:nth-child(7) {
+          animation-delay: 30s;
+        }
+
         @keyframes hussafaFade {
           0% {
             opacity: 0;
           }
 
-          8% {
+          3% {
             opacity: 1;
           }
 
-          30% {
+          14% {
             opacity: 1;
           }
 
-          38% {
+          17% {
             opacity: 0;
           }
 
@@ -159,48 +162,48 @@ export default function Home() {
       >
         {/* Automatic Home Slideshow */}
         <div className="hussafa-slideshow">
-  <img
-    className="hussafa-slide"
-    src="/home1.jpg"
-    alt="HUSSAFA Boutique collection"
-  />
+          <img
+            className="hussafa-slide"
+            src="/home1.jpg"
+            alt="HUSSAFA Boutique collection"
+          />
 
-  <img
-    className="hussafa-slide"
-    src="/home2.jpg"
-    alt="HUSSAFA Boutique collection"
-  />
+          <img
+            className="hussafa-slide"
+            src="/home2.jpg"
+            alt="HUSSAFA Boutique collection"
+          />
 
-  <img
-    className="hussafa-slide"
-    src="/home3.jpg"
-    alt="HUSSAFA Boutique collection"
-  />
+          <img
+            className="hussafa-slide"
+            src="/home3.jpg"
+            alt="HUSSAFA Boutique collection"
+          />
 
-  <img
-    className="hussafa-slide"
-    src="/home4.jpg"
-    alt="HUSSAFA Boutique collection"
-  />
+          <img
+            className="hussafa-slide"
+            src="/home4.jpg"
+            alt="HUSSAFA Boutique collection"
+          />
 
-  <img
-    className="hussafa-slide"
-    src="/home5.jpg"
-    alt="HUSSAFA Boutique collection"
-  />
+          <img
+            className="hussafa-slide"
+            src="/home5.jpg"
+            alt="HUSSAFA Boutique collection"
+          />
 
-  <img
-    className="hussafa-slide"
-    src="/home6.jpg"
-    alt="HUSSAFA Boutique collection"
-  />
+          <img
+            className="hussafa-slide"
+            src="/home6.jpg"
+            alt="HUSSAFA Boutique collection"
+          />
 
-  <img
-    className="hussafa-slide"
-    src="/home7.jpg"
-    alt="HUSSAFA Boutique collection"
-  />
-</div>
+          <img
+            className="hussafa-slide"
+            src="/home7.jpg"
+            alt="HUSSAFA Boutique collection"
+          />
+        </div>
 
         <p
           style={{
@@ -497,3 +500,4 @@ export default function Home() {
     </main>
   );
 }
+```
