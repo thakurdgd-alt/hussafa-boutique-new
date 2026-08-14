@@ -28,6 +28,7 @@ export default function Home() {
   height: 100%;
   object-fit: cover;
   opacity: 0;
+  transform: scale(1);
   animation: hussafaFade 35s infinite;
 }
 
@@ -59,28 +60,32 @@ export default function Home() {
           animation-delay: 30s;
         }
 
-        @keyframes hussafaFade {
-          0% {
-            opacity: 0;
-          }
+       @keyframes hussafaFade {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
 
-          3% {
-            opacity: 1;
-          }
+  3% {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-          14% {
-            opacity: 1;
-          }
+  14% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
 
-          17% {
-            opacity: 0;
-          }
+  17% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
 
-          100% {
-            opacity: 0;
-          }
-        }
-
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
         @media (max-width: 700px) {
           .hussafa-slideshow {
             height: 500px;
