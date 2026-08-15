@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request) {
   try {
     const { email } = await request.json();
@@ -13,6 +11,8 @@ export async function POST(request) {
         { status: 400 }
       );
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const { data, error } = await resend.emails.send({
       from: "HUSSAFA BOUTIQUE <onboarding@resend.dev>",
@@ -34,7 +34,10 @@ export async function POST(request) {
       );
     }
 
-    return NextResponse.json({ success: true, data });
+    return NextResponse.json({
+      success: true,
+      data,
+    });
   } catch (error) {
     return NextResponse.json(
       { error: "Something went wrong." },
