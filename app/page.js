@@ -527,17 +527,206 @@ export default function Home() {
         </div>
       </section>
 
-      <footer
+     <footer
+  style={{
+    borderTop: "1px solid #e6ded2",
+    padding: "70px 20px 25px",
+    color: "#70685f",
+    backgroundColor: "#f8f5ef",
+  }}
+>
+  <div
+    style={{
+      maxWidth: "1100px",
+      margin: "0 auto",
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+      gap: "45px",
+      textAlign: "left",
+    }}
+  >
+    {/* Brand */}
+    <div>
+      <h3
         style={{
-          borderTop: "1px solid #e6ded2",
-          padding: "30px 20px",
-          textAlign: "center",
-          color: "#8a8178",
-          backgroundColor: "#f8f5ef",
+          color: "#2b2723",
+          letterSpacing: "3px",
+          fontSize: "20px",
+          marginBottom: "18px",
         }}
       >
-        © 2026 HUSSAFA BOUTIQUE
-      </footer>
+        HUSSAFA BOUTIQUE
+      </h3>
+
+      <p
+        style={{
+          lineHeight: "1.8",
+          fontSize: "14px",
+          maxWidth: "320px",
+        }}
+      >
+        Where elegance meets style. Discover carefully selected
+        fashion pieces created for women who appreciate timeless
+        beauty, quality and sophistication.
+      </p>
+    </div>
+
+    {/* Quick Links */}
+    <div>
+      <h3
+        style={{
+          color: "#b08a45",
+          fontSize: "16px",
+          letterSpacing: "2px",
+          marginBottom: "20px",
+        }}
+      >
+        QUICK LINKS
+      </h3>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "12px",
+        }}
+      >
+        <a
+          href="/"
+          style={{
+            color: "#70685f",
+            textDecoration: "none",
+          }}
+        >
+          Home
+        </a>
+
+        <a
+          href="/shop"
+          style={{
+            color: "#70685f",
+            textDecoration: "none",
+          }}
+        >
+          Shop
+        </a>
+
+        <a
+          href="#about"
+          style={{
+            color: "#70685f",
+            textDecoration: "none",
+          }}
+        >
+          About Us
+        </a>
+
+        <a
+          href="#contact"
+          style={{
+            color: "#70685f",
+            textDecoration: "none",
+          }}
+        >
+          Contact Us
+        </a>
+
+        <a
+          href="#"
+          style={{
+            color: "#70685f",
+            textDecoration: "none",
+          }}
+        >
+          Terms & Conditions
+        </a>
+      </div>
+    </div>
+
+    {/* Newsletter */}
+    <div>
+      <h3
+        style={{
+          color: "#b08a45",
+          fontSize: "16px",
+          letterSpacing: "2px",
+          marginBottom: "20px",
+        }}
+      >
+        NEWSLETTER
+      </h3>
+
+      <p
+        style={{
+          lineHeight: "1.7",
+          fontSize: "14px",
+          marginBottom: "20px",
+        }}
+      >
+        Subscribe for exclusive fashion updates and special offers
+        straight to your inbox!
+      </p>
+
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          alert("Thank you for subscribing to HUSSAFA BOUTIQUE!");
+        }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+        }}
+      >
+        <input
+          type="email"
+          placeholder="Enter your email address"
+          required
+          style={{
+            width: "100%",
+            padding: "13px 14px",
+            border: "1px solid #d8cdbf",
+            backgroundColor: "#fffdf9",
+            color: "#2b2723",
+            fontSize: "14px",
+            boxSizing: "border-box",
+            outline: "none",
+          }}
+        />
+
+        <button
+          type="submit"
+          style={{
+            padding: "13px 18px",
+            border: "none",
+            backgroundColor: "#b08a45",
+            color: "#fff",
+            fontSize: "14px",
+            fontWeight: "bold",
+            letterSpacing: "1px",
+            cursor: "pointer",
+          }}
+        >
+          SUBSCRIBE
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div
+    style={{
+      maxWidth: "1100px",
+      margin: "45px auto 0",
+      paddingTop: "20px",
+      borderTop: "1px solid #e6ded2",
+      textAlign: "center",
+      fontSize: "13px",
+      color: "#8a8178",
+    }}
+  >
+    © 2026 HUSSAFA BOUTIQUE. All Rights Reserved.
+  </div>
+</footer>
     </main>
   );
 }
