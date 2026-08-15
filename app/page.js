@@ -1,3 +1,4 @@
+"use client";
 export default function Home() {
   return (
     <main
@@ -854,46 +855,71 @@ export default function Home() {
       </p>
 
   <form
-  action="/"
-  method="get"
+  onSubmit={async (e) => {
+    e.preventDefault();
+
+    const email = e.currentTarget.email.value;
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Thank you! You have successfully subscribed.");
+        e.currentTarget.reset();
+      } else {
+        alert(result.error || "Something went wrong.");
+      }
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    }
+  }}
   style={{
     display: "flex",
     flexDirection: "column",
     gap: "10px",
   }}
 >
-        <input
-          type="email"
-          placeholder="Enter your email address"
-          required
-          style={{
-            width: "100%",
-            padding: "13px 14px",
-            border: "1px solid #d8cdbf",
-            backgroundColor: "#fffdf9",
-            color: "#2b2723",
-            fontSize: "14px",
-            boxSizing: "border-box",
-            outline: "none",
-          }}
-        />
+  <input
+    name="email"
+    type="email"
+    placeholder="Enter your email address"
+    required
+    style={{
+      width: "100%",
+      padding: "13px 14px",
+      border: "1px solid #d8cdbf",
+      backgroundColor: "#fffdf9",
+      color: "#2b2723",
+      fontSize: "14px",
+      boxSizing: "border-box",
+      outline: "none",
+    }}
+  />
 
-        <button
-          type="submit"
-          style={{
-            padding: "13px 18px",
-            border: "none",
-            backgroundColor: "#b08a45",
-            color: "#fff",
-            fontSize: "14px",
-            fontWeight: "bold",
-            letterSpacing: "1px",
-            cursor: "pointer",
-          }}
-        >
-          SUBSCRIBE
-        </button>
-      </form>
+  <button
+    type="submit"
+    style={{
+      padding: "13px 18px",
+      border: "none",
+      backgroundColor: "#b08a45",
+      color: "#fff",
+      fontSize: "14px",
+      fontWeight: "bold",
+      letterSpacing: "1px",
+      cursor: "pointer",
+    }}
+  >
+    SUBSCRIBE
+  </button>
+</form>
     </div>
   </div>
 
