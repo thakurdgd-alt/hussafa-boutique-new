@@ -668,16 +668,14 @@ export default function Home() {
       </p>
 
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          alert("Thank you for subscribing to HUSSAFA BOUTIQUE!");
-        }}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-        }}
-      >
+  action="#"
+  method="post"
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
         <input
           type="email"
           placeholder="Enter your email address"
