@@ -853,9 +853,11 @@ export default function Home() {
         straight to your inbox!
       </p>
 
-      <form
-  action="#"
-  method="post"
+  <form
+  onSubmit={(e) => {
+    e.preventDefault();
+    alert("Thank you for subscribing!");
+  }}
   style={{
     display: "flex",
     flexDirection: "column",
