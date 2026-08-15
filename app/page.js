@@ -534,44 +534,9 @@ export default function Home() {
       >
         ✨ HUSSAFA BOUTIQUE — Where Elegance Meets Style.
       </p>
+         </div>
     </div>
-  </div>
-</section>
-        <p
-          style={{
-            color: "#b08a45",
-            letterSpacing: "4px",
-          }}
-        >
-          OUR STORY
-        </p>
-
-        <h2
-          style={{
-            color: "#2b2723",
-            fontSize: "42px",
-            fontWeight: "500",
-            margin: "15px 0 25px",
-          }}
-        >
-          About HUSSAFA
-        </h2>
-
-        <p
-          style={{
-            color: "#70685f",
-            maxWidth: "750px",
-            margin: "0 auto",
-            lineHeight: "1.9",
-            fontSize: "17px",
-          }}
-        >
-          HUSSAFA BOUTIQUE is dedicated to bringing elegance,
-          quality and luxury together. Our collection is created
-          for customers who value beautiful designs and timeless
-          sophistication.
-        </p>
-      </section>
+  </section>
 
       <section
         style={{
