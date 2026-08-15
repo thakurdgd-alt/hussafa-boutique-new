@@ -308,14 +308,235 @@ export default function Home() {
         </a>
       </section>
 
-      <section
-        id="about"
+     <section
+  id="about"
+  style={{
+    padding: "100px 20px",
+    backgroundColor: "#fffdf9",
+  }}
+>
+  <div
+    style={{
+      maxWidth: "950px",
+      margin: "0 auto",
+    }}
+  >
+    <div style={{ textAlign: "center" }}>
+      <p
         style={{
-          padding: "100px 20px",
-          backgroundColor: "#fffdf9",
+          color: "#b08a45",
+          letterSpacing: "4px",
+          fontSize: "13px",
+          marginBottom: "15px",
+        }}
+      >
+        OUR STORY
+      </p>
+
+      <h2
+        style={{
+          color: "#2b2723",
+          fontSize: "clamp(34px, 6vw, 48px)",
+          fontWeight: "500",
+          margin: "0 0 35px",
+        }}
+      >
+        About HUSSAFA BOUTIQUE
+      </h2>
+    </div>
+
+    <div
+      style={{
+        color: "#70685f",
+        lineHeight: "1.9",
+        fontSize: "17px",
+      }}
+    >
+      <p>
+        At <strong style={{ color: "#2b2723" }}>HUSSAFA BOUTIQUE</strong>,
+        we believe every outfit is more than just clothing — it is an
+        expression of elegance, confidence, culture, and individuality.
+      </p>
+
+      <p>
+        Founded with a passion for refined fashion, HUSSAFA BOUTIQUE
+        brings together timeless Pakistani aesthetics and contemporary
+        style to create pieces that celebrate the modern woman. Our
+        collections are thoughtfully curated for women who appreciate
+        quality, sophistication, and effortless elegance.
+      </p>
+
+      <p>
+        From <strong style={{ color: "#2b2723" }}>luxury pret and festive wear
+        to elegant traditional ensembles</strong>, every piece is selected
+        with attention to detail, design, fabric, and finishing. We believe
+        that beautiful fashion should feel as special as it looks, whether
+        you are dressing for Eid, a wedding, a celebration, or an
+        unforgettable everyday moment.
+      </p>
+
+      <div
+        style={{
+          margin: "55px 0",
+          padding: "40px 25px",
+          backgroundColor: "#f8f5ef",
+          border: "1px solid #e6ded2",
           textAlign: "center",
         }}
       >
+        <h3
+          style={{
+            color: "#2b2723",
+            fontSize: "28px",
+            fontWeight: "500",
+            margin: "0 0 20px",
+          }}
+        >
+          Our Design Philosophy
+        </h3>
+
+        <p
+          style={{
+            color: "#b08a45",
+            letterSpacing: "2px",
+            fontWeight: "bold",
+            margin: 0,
+          }}
+        >
+          ELEGANCE&nbsp;&nbsp; — &nbsp;&nbsp;CRAFTSMANSHIP&nbsp;&nbsp; — &nbsp;&nbsp;INDIVIDUALITY
+        </p>
+      </div>
+
+      <p>
+        Our approach is inspired by three core values: elegance,
+        craftsmanship, and individuality. We celebrate the beauty of
+        Pakistani fashion while embracing modern silhouettes, refined
+        details, and contemporary styling. Traditional influences are
+        thoughtfully combined with modern aesthetics to create outfits
+        that feel both graceful and relevant.
+      </p>
+
+      <p>
+        From delicate embroidery and beautiful fabrics to carefully
+        considered cuts and finishing touches, every detail reflects our
+        commitment to bringing you fashion that is sophisticated,
+        versatile, and memorable.
+      </p>
+
+      <h3
+        style={{
+          color: "#2b2723",
+          fontSize: "30px",
+          fontWeight: "500",
+          marginTop: "55px",
+          marginBottom: "20px",
+        }}
+      >
+        Fashion With a Personal Touch
+      </h3>
+
+      <p>
+        At HUSSAFA BOUTIQUE, we believe fashion should help every woman
+        express her own personality and confidence. That is why we aim to
+        offer a carefully selected range of styles that can become part
+        of your most special moments.
+      </p>
+
+      <p>
+        Whether you are looking for an elegant festive outfit, a
+        sophisticated pret look, or something timeless for a special
+        occasion, our goal is to make your shopping experience simple,
+        enjoyable, and inspiring.
+      </p>
+
+      <div
+        style={{
+          marginTop: "55px",
+          padding: "40px 30px",
+          backgroundColor: "#f8f5ef",
+          border: "1px solid #e6ded2",
+        }}
+      >
+        <h3
+          style={{
+            color: "#2b2723",
+            fontSize: "30px",
+            fontWeight: "500",
+            marginTop: 0,
+            marginBottom: "25px",
+            textAlign: "center",
+          }}
+        >
+          Our Promise
+        </h3>
+
+        <ul
+          style={{
+            maxWidth: "650px",
+            margin: "0 auto",
+            paddingLeft: "20px",
+          }}
+        >
+          <li style={{ marginBottom: "12px" }}>
+            Carefully selected and beautifully designed fashion
+          </li>
+
+          <li style={{ marginBottom: "12px" }}>
+            Attention to quality, detail, and presentation
+          </li>
+
+          <li style={{ marginBottom: "12px" }}>
+            A smooth and convenient online shopping experience
+          </li>
+
+          <li style={{ marginBottom: "12px" }}>
+            Friendly and attentive customer support
+          </li>
+
+          <li>
+            A fashion experience built around elegance and customer
+            satisfaction
+          </li>
+        </ul>
+      </div>
+
+      <p
+        style={{
+          marginTop: "55px",
+          textAlign: "center",
+          fontSize: "19px",
+        }}
+      >
+        HUSSAFA BOUTIQUE is more than a clothing store. It is a celebration
+        of <strong style={{ color: "#2b2723" }}>
+          style, confidence, culture, and individuality.
+        </strong>
+      </p>
+
+      <p
+        style={{
+          textAlign: "center",
+        }}
+      >
+        We invite you to discover our collections and find the pieces that
+        make you feel truly special.
+      </p>
+
+      <p
+        style={{
+          color: "#b08a45",
+          textAlign: "center",
+          fontSize: "20px",
+          fontWeight: "bold",
+          letterSpacing: "1px",
+          marginTop: "35px",
+        }}
+      >
+        ✨ HUSSAFA BOUTIQUE — Where Elegance Meets Style.
+      </p>
+    </div>
+  </div>
+</section>
         <p
           style={{
             color: "#b08a45",
