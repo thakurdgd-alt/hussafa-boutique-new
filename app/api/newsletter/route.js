@@ -28,6 +28,8 @@ export async function POST(request) {
     });
 
     if (error) {
+      console.error("RESEND ERROR:", error);
+
       return NextResponse.json(
         { error: error.message },
         { status: 500 }
@@ -38,9 +40,14 @@ export async function POST(request) {
       success: true,
       data,
     });
+
   } catch (error) {
+    console.error("NEWSLETTER ERROR:", error);
+
     return NextResponse.json(
-      { error: "Something went wrong." },
+      {
+        error: error?.message || "Something went wrong.",
+      },
       { status: 500 }
     );
   }
