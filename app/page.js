@@ -854,33 +854,34 @@ export default function Home() {
         straight to your inbox!
       </p>
 
-  <form
   onSubmit={async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const email = e.currentTarget.email.value;
+  const form = e.currentTarget;
+  const email = form.email.value;
 
-    try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+  try {
+    const response = await fetch("/api/newsletter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
 
-      const result = await response.json();
+    const result = await response.json();
 
-      if (response.ok) {
-        alert("Thank you! You have successfully subscribed.");
-        e.currentTarget.reset();
-      } else {
-        alert(result.error || "Something went wrong.");
-      }
-    } catch (error) {
-      alert("Something went wrong. Please try again.");
+    if (response.ok) {
+      alert("Thank you! You have successfully subscribed.");
+      form.reset();
+    } else {
+      alert(result.error || "Something went wrong.");
     }
-  }}
+  } catch (error) {
+    console.error("Newsletter error:", error);
+    alert("Something went wrong. Please try again.");
+  }
+}}
   style={{
     display: "flex",
     flexDirection: "column",
